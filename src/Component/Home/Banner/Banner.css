@@ -1,0 +1,72 @@
+.header {
+    height: 95vh;
+    color: white;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(27, 32, 32, 0.315)), to(rgba(142, 168, 168, 0.384))), url("img/H3.jpg");
+    background: linear-gradient(rgba(27, 32, 32, 0.315), rgba(142, 168, 168, 0.384)), url("../../../asset//Img/H3.jpg");
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.header__logo-box {
+    position: absolute;
+    top: 12px;
+    left: 25px;
+}
+
+.header__logo {
+    height: 2.5rem;
+    width: 4.5rem;
+}
+
+.header__text-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.header__text-box .heading__primary {
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 6rem;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.header__text-box .heading__primary--main {
+    display: block;
+    font-size: 5rem;
+    font-weight: 400;
+    letter-spacing: 1.5rem;
+    -webkit-animation: moveInRight 2s ease-in-out .2s;
+    animation: moveInRight 2s ease-in-out .2s;
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+}
+
+.header__text-box .heading__primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: .75rem;
+    -webkit-animation: moveInLeft 2s ease-in-out .2s;
+    animation: moveInLeft 2s ease-in-out .2s;
+}
+
+.header__text-box .my-btn--animated {
+    -webkit-animation: animated 1s ease-in-out .2s;
+    animation: animated 1s ease-in-out .2s;
+    -webkit-animation-fill-mode: backwards;
+    animation-fill-mode: backwards;
+}
+
+.header__text-box .my-btn--white:hover::after {
+    -webkit-transform: scaleX(1.3) scaleY(1.6);
+    transform: scaleX(1.3) scaleY(1.6);
+    background-color: white;
+    opacity: 0;
+}
