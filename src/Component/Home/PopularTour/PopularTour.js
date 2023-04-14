@@ -145,7 +145,7 @@ const PopularTour = () => {
                 <div class="text-center mx-auto underline my-2 ">
                     <a href="#" class="">Discover our tours </a>
                 </div>
-
+                <div className='border-b-2 mt-5 border-grey-200'></div>
             </section>
         </div>
     );

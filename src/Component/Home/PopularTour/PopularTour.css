@@ -51,21 +51,8 @@
     background-repeat: no-repeat;
 }
 
-.section__tours .card__slide-font .card-pic-2 {
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(19, 220, 19, 0.552)), to(rgba(30, 167, 46, 0.538))), url("../../../asset/Img/I2.jpg");
-    background: linear-gradient(rgba(19, 220, 19, 0.552), rgba(30, 167, 46, 0.538)), url("../../../asset/Img/I2.jpg");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
 
-.section__tours .card__slide-font .card-pic-3 {
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(92, 216, 204, 0.816)), to(rgba(61, 164, 228, 0.34))), url("../../../asset/Img/I3.jpg");
-    background: linear-gradient(rgba(92, 216, 204, 0.816), rgba(61, 164, 228, 0.34)), url("../../../asset/Img/I3.jpg");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
+
 
 .section__tours .card__slide-font .card-heading {
     float: right;
@@ -137,7 +124,7 @@
 
 .section__tours .card__slide .slider-back3 {
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(92, 216, 204, 0.816)), to(rgba(61, 164, 228, 0.34))), url("../../../asset/Img/I1.jpg");
-    background: linear-gradient(rgba(92, 216, 204, 0.816), rgba(61, 164, 228, 0.34)), url("../../../asset/Img/I3.jpg");
+    background: linear-gradient(rgba(92, 216, 204, 0.214), rgba(61, 164, 228, 0.223)), url("../../../asset/Img/H4.jpg");
 }
 
 .section__tours .card:hover .card__slide-font {
