@@ -45,7 +45,7 @@
     letter-spacing: 1.5rem;
     -webkit-animation: moveInRight 2s ease-in-out .2s;
     animation: moveInRight 2s ease-in-out .2s;
-    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+    animation: name duration timing-function delay iteration-count direction fill-mode;
 }
 
 .header__text-box .heading__primary--sub {
