@@ -3,8 +3,10 @@ import React from 'react';
 const ExoticPlace = () => {
     return (
         <div>
-            <div>
-                <h1 className='text-center text-5xl font-bold  my-6'>Go Exotic Places</h1>
+            <div className='group my-6'>
+
+                <h2 className='text-center text-4xl font-semibold text-black mb-5 uppercase '>Go Exotic Places</h2>
+                <div className='border-b-2 w-28 -mt-2 mx-auto text-center transition-all duration-300 border-[#12dd2a] group-hover:scale-x-[15]'></div>
             </div>
 
             <div className=" mx-auto ">

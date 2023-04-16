@@ -1,24 +1,63 @@
 import React from 'react';
 import './Banner.css'
-import logo from '../../../asset/Img/Untitled-6.png'
+import img1 from '../../../asset/Img/bora.jpg'
+import img2 from '../../../asset/Img/image.jpg'
+import { useScrollPosition } from '../../../hooks/useScrollPosition';
+
 
 
 const Banner = () => {
+
+    const scrollPosition = useScrollPosition()
+
+
     return (
         <div>
-            <header className="header">
-                <div className="header__logo-box">
-                    {/* <img src={logo} alt="logo" className="header__logo" /> */}
-                </div>
-                <div className="header__text-box">
-                    <h1 className="heading__primary">
-                        <span className="heading__primary--main">Outdoors</span>
-                        <span className="heading__primary--sub">is where life happens</span>
-                    </h1>
-                    <a href="#" className="my-btn my-btn--white my-btn--animated">Discover our tours</a>
-                </div>
-            </header>
+            <div className={`${scrollPosition === 0 ? 'top-[-78px] ' : ''} relative carousel w-full h-[90vh]`}>
+                <div id="slide1" className={` carousel-item relative w-full `}>
+                    <img src={img1} className="w-full " />
+                    <div className="header__text-box">
+                        <h1 className="heading__primary">
+                            <span className="heading__primary--main">Outdoors</span>
+                            <span className="heading__primary--sub">is where life happens</span>
+                        </h1>
+                        <a href="#" className="my-btn my-btn--white my-btn--animated">Discover our tours</a>
+                    </div>
 
+                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                        <a href="#slide4" className="btn btn-circle">❮</a>
+                        <a href="#slide2" className="btn btn-circle">❯</a>
+                    </div>
+                </div>
+                <div id="slide2" className="carousel-item relative w-full">
+                    <img src={img2} className="w-full" />
+                    <div className="header__text-box">
+                        <h1 className="heading__primary">
+                            <span className="heading__primary--main">Outdoors</span>
+                            <span className="heading__primary--sub">is where life happens</span>
+                        </h1>
+                        <a href="#" className="my-btn my-btn--white my-btn--animated">Discover our tours</a>
+                    </div>
+                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                        <a href="#slide1" className="btn btn-circle">❮</a>
+                        <a href="#slide3" className="btn btn-circle">❯</a>
+                    </div>
+                </div>
+                <div id="slide3" className="carousel-item relative w-full">
+                    <img src={img1} className="w-full" />
+                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                        <a href="#slide2" className="btn btn-circle">❮</a>
+                        <a href="#slide4" className="btn btn-circle">❯</a>
+                    </div>
+                </div>
+                <div id="slide4" className="carousel-item relative w-full">
+                    <img src={img2} className="w-full" />
+                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                        <a href="#slide3" className="btn btn-circle">❮</a>
+                        <a href="#slide1" className="btn btn-circle">❯</a>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

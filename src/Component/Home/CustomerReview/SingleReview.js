@@ -6,7 +6,7 @@ const SingleReview = (props) => {
 
     return (
 
-        <div class="carousel-item">
+        <div className="carousel-item">
 
             <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 bg-gray-900 text-gray-100">
                 <div className="flex justify-between p-4">
