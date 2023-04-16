@@ -2,7 +2,7 @@
     height: 95vh;
     color: white;
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(27, 32, 32, 0.315)), to(rgba(142, 168, 168, 0.384))), url("img/H3.jpg");
-    background: linear-gradient(rgba(27, 32, 32, 0.315), rgba(142, 168, 168, 0.384)), url("../../../asset//Img/H3.jpg");
+    background: linear-gradient(rgba(27, 32, 32, 0.315), rgba(142, 168, 168, 0.384)), url("../../../asset/Img/sajek.jpg");
     position: relative;
     background-size: cover;
     background-position: center;
@@ -45,7 +45,7 @@
     letter-spacing: 1.5rem;
     -webkit-animation: moveInRight 2s ease-in-out .2s;
     animation: moveInRight 2s ease-in-out .2s;
-    animation: name duration timing-function delay iteration-count direction fill-mode;
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
 }
 
 .header__text-box .heading__primary--sub {

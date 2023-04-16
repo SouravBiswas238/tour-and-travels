@@ -45,7 +45,7 @@
 }
 
 .section__tours .card__slide-font .card-pic-1 {
-    background: url("../../../asset/Img/I4.jpg");
+    background: url("../../../asset/Img/saintmartin.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -123,8 +123,8 @@
 }
 
 .section__tours .card__slide .slider-back3 {
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(92, 216, 204, 0.816)), to(rgba(61, 164, 228, 0.34))), url("../../../asset/Img/I1.jpg");
-    background: linear-gradient(rgba(92, 216, 204, 0.214), rgba(61, 164, 228, 0.223)), url("../../../asset/Img/H4.jpg");
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(92, 216, 204, 0.816)), to(rgba(61, 164, 228, 0.34))), url("../../../asset/Img/saintmartin.jpg");
+    background: linear-gradient(rgba(92, 216, 204, 0.214), rgba(61, 164, 228, 0.223)), url("../../../asset/Img/saintmartin.jpg");
 }
 
 .section__tours .card:hover .card__slide-font {
