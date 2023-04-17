@@ -30,7 +30,7 @@
     transition: all .5s ease-in;
 }
 
-.section__tours .card__slide-font {
+.card__slide-font {
     transform: rotate(0);
     transition: all .5s ease-in;
     position: absolute;
@@ -39,12 +39,12 @@
     backface-visibility: hidden;
 }
 
-.section__tours .card__slide-font .card-picture {
+.card-picture {
     height: 15rem;
     clip-path: polygon(0 0, 100% 0, 100% 84%, 0 100%);
 }
 
-.section__tours .card__slide-font .card-pic-1 {
+.card-pic-1 {
     background: url("../../../asset/Img/saintmartin.jpg");
     background-position: center;
     background-size: cover;
@@ -54,24 +54,14 @@
 
 
 
-.section__tours .card__slide-font .card-heading {
-    float: right;
-    font-size: 1.5rem;
-    position: relative;
-    top: -18%;
-    color: white;
-    width: 55%;
-}
 
-.section__tours .card__slide-font .card-heading-1 {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(36, 83, 7, 0.816)), to(rgba(226, 195, 21, 0.585)));
-    background-image: linear-gradient(rgba(36, 83, 7, 0.816), rgba(226, 195, 21, 0.585));
-    padding: 6px 22px;
-    -webkit-box-decoration-break: clone;
+
+.card-heading-1 {
+    background-image: linear-gradient(rgba(191, 198, 186, 0.816), rgba(130, 129, 122, 0.585));
     box-decoration-break: clone;
 }
 
-.section__tours .card__slide-font .card-details {
+.card-details {
     position: absolute;
     margin: 0 auto;
     margin-left: 22%;
@@ -80,7 +70,7 @@
 
 
 
-.section__tours .card__slide-font .card-ul :not(:last-child) {
+.card-ul {
     border-bottom: 2px solid rgba(126, 117, 117, 0.462);
 }
 

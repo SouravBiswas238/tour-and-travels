@@ -9,8 +9,8 @@ const HomeIndex = () => {
     return (
         <div className='container mx-auto'>
             <Banner />
-            <PopularTour />
             <ExoticPlace />
+            <PopularTour />
             <CustomerReview />
 
         </div>

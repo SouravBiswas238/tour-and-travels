@@ -6,7 +6,7 @@ import HomeIndex from './Component/Home/HomeIndex';
 import Footer from './Component/Shared/Footer';
 function App() {
   return (
-    <div className='mx-auto container'>
+    <div className='mx-auto container overflow-hidden'>
 
       <Navigation></Navigation>
       <HomeIndex />

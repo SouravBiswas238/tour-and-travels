@@ -27,8 +27,8 @@ const Navigation = () => {
 
 
     return (
-        <nav className={`sticky  top-0 left-0 z-50 transition-all duration-300 ${scrollPosition === 0 ? ' bg-transparent ' : ' bg-[#0C1322]'} `}>
-            <div className='container max-w-[1500px] mx-auto relative z-50'>
+        <nav className={`fixed container mx-auto z-50 duration-300 ${scrollPosition === 0 ? ' bg-transparent ' : ' bg-[#0C1322]'} `}>
+            <div className='  relative z-50'>
                 <div className='flex justify-between items-center relative'>
                     {/* logo and navbar menu */}
                     <div className='logo flex items-center text-xl font-bold py-3 ml-3'>
