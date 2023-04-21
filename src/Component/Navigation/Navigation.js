@@ -27,8 +27,8 @@ const Navigation = () => {
 
 
     return (
-        <nav className={`fixed container mx-auto z-50 duration-300 ${scrollPosition === 0 ? ' bg-transparent ' : ' bg-[#0C1322]'} `}>
-            <div className='  relative z-50'>
+        <nav className={`fixed container mx-auto z-50 duration-300 ${scrollPosition === 0 ? ' bg-transparent' : ' bg-[#0C1322]'} `}>
+            <div className=' relative z-50'>
                 <div className='flex justify-between items-center relative'>
                     {/* logo and navbar menu */}
                     <div className='logo flex items-center text-xl font-bold py-3 ml-3'>
@@ -63,7 +63,7 @@ const Navigation = () => {
                             <ul className='md:flex   border-x-2 border-b-2 md:border-0 border-gray-200  pl-3 md:pl-0 py-5 md:py-0 w-full md:w-auto'>
 
                                 <li onClick={closedNavbarAll} className='mr-5 mb-4 md:mb-0  '> <NavLink to="/" className={({ isActive }) => (isActive ? active : deActive)} ><AiFillHome className='md:hidden  mr-2 ' />Home</NavLink> </li>
-                                <li onClick={closedNavbarAll} className='mr-5 mb-4 md:mb-0  '> <NavLink to="/about" className={({ isActive }) => (isActive ? active : deActive)} > <MdOutlineConnectWithoutContact className='md:hidden  mr-2' /> Tours page</NavLink> </li>
+                                <li onClick={closedNavbarAll} className='mr-5 mb-4 md:mb-0  '> <NavLink to="/single" className={({ isActive }) => (isActive ? active : deActive)} > <MdOutlineConnectWithoutContact className='md:hidden  mr-2' /> Tours page</NavLink> </li>
                                 <li onClick={closedNavbarAll} className='mr-5 mb-4 md:mb-0  '> <NavLink to="/projects" className={({ isActive }) => (isActive ? active : deActive)} ><BsTools className='md:hidden  mr-2' /> <a href="#projects"> Destination</a></NavLink> </li>
                                 <li onClick={closedNavbarAll} className='mr-5 mb-4 md:mb-0  '> <NavLink to="/blog" className={({ isActive }) => (isActive ? active : deActive)} > <MdDeveloperMode className='md:hidden  mr-2 ' /> Blog</NavLink> </li>
                                 <li onClick={closedNavbarAll} className='mr-5 mb-4 md:mb-0  '> <NavLink to="/contact" className={({ isActive }) => (isActive ? active : deActive)} > <MdOutlineConnectWithoutContact className='md:hidden mr-2' /> News</NavLink> </li>

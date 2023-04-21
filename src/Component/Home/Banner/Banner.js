@@ -1,7 +1,7 @@
 import React from 'react';
 import './Banner.css'
-import img1 from '../../../asset/Img/bora.jpg'
-import img2 from '../../../asset/Img/image.jpg'
+import img1 from '../../../asset/Img/saintmartin.jpg'
+import img2 from '../../../asset/Img/sajek.jpg'
 import { useScrollPosition } from '../../../hooks/useScrollPosition';
 
 
