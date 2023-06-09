@@ -22,7 +22,6 @@ const RegisterForm = () => {
   const onSubmit = async (data) => {
     setLoading(true);
     const res = await Api.post("/user/signUp", data);
-    console.log("res==>", res);
     if (res.status && res.data) {
       setUserData(res.data);
       toast.success("Registration Complete");
@@ -32,8 +31,6 @@ const RegisterForm = () => {
     }
     setLoading(false);
   };
-
-  console.log("user==>", userData);
 
   return (
     <div className="flex justify-center items-center h-screen">

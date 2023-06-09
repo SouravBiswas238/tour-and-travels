@@ -27,7 +27,6 @@ const Login = () => {
     }
     setLoading(false);
   };
-  console.log("user==>", userData);
   return (
     <div className="container mx-auto flex justify-center items-center h-screen">
       {userData.email ? (
