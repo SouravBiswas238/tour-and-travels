@@ -1,17 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../../asset/Img/logo.png'
 const Footer = () => {
     return (
-        <footer className="px-4 divide-y bg-gray-100">
+        <footer className="px-4 divide-y bg-gray-300">
             <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
                 <div className="lg:w-1/3">
-                    <a rel="noopener noreferrer" href="#" className="space-y-4 text-2xl  font-bold">
-                        <img className='w-52' src={logo} alt="" />
+                    <Link to='/' className="space-y-4 text-2xl  font-bold">
+                        {/* <img className='w-52' src={logo} alt="" /> */}
                         <span className='ml-1 my-2  text-white'>
                             Tour <span className=' text-[#38BDF8] '>E JAi Dure</span>
                         </span>
 
-                    </a>
+                    </Link>
                 </div>
                 <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
                     <div className="space-y-3">

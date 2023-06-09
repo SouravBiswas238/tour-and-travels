@@ -1,9 +1,28 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect } from 'react';
+import { useState } from 'react';
 import { useScrollPosition } from '../../../hooks/useScrollPosition';
 import './PopularTour.css'
 
 const PopularTour = () => {
-    const scrollPosition = useScrollPosition()
+    const scrollPosition = useScrollPosition();
+    const [tourData, setTourData] = useState([]);
+
+    console.log(tourData)
+
+    useEffect(() => {
+        async function getAllData() {
+            try {
+                const response = await axios.get('http://localhost:5000/api/tour/all');
+                setTourData(response);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+        // getAllData()
+    }, [])
+
+
 
     return (
         <div className={`${scrollPosition === 0 ? 'relative top-[-80px]' : ''} overflow-hidden`}>
@@ -19,7 +38,7 @@ const PopularTour = () => {
                             <div className="absolute w-full  ">
                                 <div className="card-picture card-pic-1">
                                 </div>
-                                <h4 className="flex flex-wrap relative left-44 top-[-4rem] font-semibold ">
+                                <h4 className="flex flex-wrap relative left-1/3 top-[-4rem] font-semibold ">
                                     <span className=" text-white px-4 text-xl py-1 bg-gradient-to-r from-cyan-400 to-blue-400">The sea Explore</span>
                                 </h4>
                                 <div className="w-full  mx-auto text-center">
@@ -49,7 +68,7 @@ const PopularTour = () => {
                             <div className="absolute w-full  ">
                                 <div className="card-picture card-pic-1">
                                 </div>
-                                <h4 className="flex flex-wrap relative left-44 top-[-4rem] font-semibold ">
+                                <h4 className="flex flex-wrap relative left-1/2 top-[-4rem] font-semibold ">
                                     <span className=" text-white px-4 text-xl py-1 bg-gradient-to-r from-cyan-400 to-blue-400">The sea Explore</span>
                                 </h4>
                                 <div className="w-full  mx-auto text-center">
@@ -79,7 +98,7 @@ const PopularTour = () => {
                             <div className="absolute w-full  ">
                                 <div className="card-picture card-pic-1">
                                 </div>
-                                <h4 className="flex flex-wrap relative left-44 top-[-4rem] font-semibold ">
+                                <h4 className="flex flex-wrap relative left-1/3 top-[-4rem] font-semibold ">
                                     <span className=" text-white px-4 text-xl py-1 bg-gradient-to-r from-cyan-400 to-blue-400">The sea Explore</span>
                                 </h4>
                                 <div className="w-full  mx-auto text-center">
@@ -109,7 +128,7 @@ const PopularTour = () => {
                             <div className="absolute w-full  ">
                                 <div className="card-picture card-pic-1">
                                 </div>
-                                <h4 className="flex flex-wrap relative left-44 top-[-4rem] font-semibold ">
+                                <h4 className="flex flex-wrap relative left-1/3 top-[-4rem] font-semibold ">
                                     <span className=" text-white px-4 text-xl py-1 bg-gradient-to-r from-cyan-400 to-blue-400">The sea Explore</span>
                                 </h4>
                                 <div className="w-full  mx-auto text-center">
