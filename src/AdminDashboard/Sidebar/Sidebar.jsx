@@ -30,7 +30,7 @@ const Sidebar = ({ dashboardSwitch }) => {
           <Link to="/admin">
             <li className={dashboardLinkStyle}>
               <AiFillFileText className="mr-2" />
-              <span className={`${!dbSwitch && 'hidden py-2'}`}>Lists</span>
+              <span className={`${!dbSwitch && 'hidden py-2'}`}>All Tour</span>
             </li>
           </Link>
           <Link to="addTour">

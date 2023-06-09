@@ -4,6 +4,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import Api from '../../utility/api';
 
 const AddTour = () => {
     const { register, handleSubmit, reset, formState: { errors }, setValue, watch } = useForm();
@@ -11,10 +12,13 @@ const AddTour = () => {
     const onSubmit = async (data) => {
         try {
             // Make a POST request to the API to save the tour data
-            const response = await axios.post('http://localhost:5000/api/tour/create', { "tourBody": data });
+            const response = await Api.post('/tour/create', { "tourBody": data });
             console.log(response); // You can replace this with your desired action
 
-
+            if (response.data) {
+                reset();
+            }
+            reset();
             // Display success notification
             toast.success('Tour added successfully');
         } catch (error) {
@@ -24,9 +28,9 @@ const AddTour = () => {
     };
 
     return (
-        <div className="flex justify-center items-center h-screen">
+        <div className="flex justify-center items-center">
             <form
-                className="bg-white shadow-md rounded px-8 pt-6 pb-8 w-2/3"
+                className="bg-white shadow-md rounded px-5 py-5 w-full"
                 onSubmit={handleSubmit(onSubmit)}
             >
                 <h2 className="text-2xl mb-6">Add Tour</h2>
@@ -178,7 +182,7 @@ const AddTour = () => {
                         {errors.startLocation && <p className="text-red-500 text-xs mt-1">{errors.startLocation.message}</p>}
                     </div>
                 </div>
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-end pt-5">
                     <button
                         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                         type="submit"
