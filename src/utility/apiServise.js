@@ -1,82 +1,50 @@
 import axios from "axios";
 
+const baseURL = "http://localhost:5000/api";
+
+const makeUrl = (endPoint) => {
+  return `${baseURL}${endPoint}`;
+};
 export default class API {
-  constructor(options) {
-    this.axiosInstance = axios.create({
-      baseURL: options.baseUrl,
-    });
-    this.axiosInstance.interceptors.request.use(
-      function (config) {
-        return config;
-      },
-      function (error) {
-        return Promise.reject(error);
-      }
-    );
-
-    this.axiosInstance.interceptors.response.use(
-      function (response) {
-        return response;
-      },
-      function (error) {
-        return Promise.reject(error);
-      }
-    );
+  async get(endPoint, body) {
+    const urlString = makeUrl(endPoint);
+    try {
+      const response = await axios.get(urlString, body);
+      return response.data;
+    } catch (err) {
+      console.log(err);
+      return err.response.data;
+    }
   }
 
-  get(endPoint, body) {
-    return this.httpRequest("GET", endPoint, body);
+  async post(endPoint, body) {
+    const urlString = makeUrl(endPoint);
+    try {
+      const response = await axios.post(urlString, body);
+      return response.data;
+    } catch (err) {
+      console.log(err);
+      return err.response.data;
+    }
   }
 
-  create(endPoint, body) {
-    return this.httpRequest("POST", endPoint, body);
+  async update(endPoint, body) {
+    const urlString = makeUrl(endPoint);
+    try {
+      const response = await axios.put(urlString, body);
+      return response.data;
+    } catch (err) {
+      return err.response.data;
+    }
   }
 
-  updtae(endPoint, body) {
-    return this.httpRequest("PUT", endPoint, body);
-  }
-
-  delete(endPoint, body) {
-    return this.httpRequest("DELETE", endPoint, body);
-  }
-
-  async httpRequest(method, url, params, header = null) {
-    return new Promise((resolve, reject) => {
-      let options;
-      if (method === "GET") {
-        options = {
-          url: url,
-          headers: header
-            ? header
-            : {
-                "Content-Type": "application/json",
-              },
-          method: method,
-        };
-      } else {
-        options = {
-          url: url,
-          headers: header
-            ? header
-            : {
-                "Content-Type": "application/json",
-              },
-          method: method,
-          data: params,
-        };
-      }
-
-      this.axiosInstance
-        .request(options)
-        .then((response) => {
-          resolve({
-            status: response.status,
-            ...response.data,
-          });
-        })
-        .catch((error) => {
-          reject(error);
-        });
-    });
+  async delete(endPoint, body) {
+    const urlString = makeUrl(endPoint);
+    try {
+      const response = await axios.delete(urlString, body);
+      return response.data;
+    } catch (err) {
+      return err.response.data;
+    }
   }
 }
