@@ -30,7 +30,13 @@ const Sidebar = ({ dashboardSwitch }) => {
           <Link to="/admin">
             <li className={dashboardLinkStyle}>
               <AiFillFileText className="mr-2" />
-              <span className={`${!dbSwitch && 'hidden py-2'}`}>Home</span>
+              <span className={`${!dbSwitch && 'hidden py-2'}`}>All Tour</span>
+            </li>
+          </Link>
+          <Link to="addTour">
+            <li className={dashboardLinkStyle}>
+              <AiFillFileText className="mr-2" />
+              <span className={`${!dbSwitch && 'hidden py-2'}`}>Add Tour</span>
             </li>
           </Link>
 
@@ -49,7 +55,7 @@ const Sidebar = ({ dashboardSwitch }) => {
             <Link to="">
               <li className={dashboardLinkStyle}>
                 <AiFillFileText className="mr-2" />
-                <span className={`${!dbSwitch && 'hidden'}  text-[16px] `} >AI Sales Bot</span>
+                <span className={`${!dbSwitch && 'hidden'}  text-[16px] `} >Post Blog</span>
               </li>
             </Link>
 
