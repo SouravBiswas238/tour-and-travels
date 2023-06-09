@@ -1,19 +1,27 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../../UserContext/userContext";
 import Api from "../../../utility/api";
 
 const Login = () => {
+  const [loading, setLoading] = useState(false);
+  const { userData, setUserData } = useContext(UserContext);
+  const navigate = useNavigate();
+  console.log("user==>", userData);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [loading, setLoading] = useState(false);
 
   const onSubmit = async (data) => {
     setLoading(true);
     const res = await Api.post("/user/login", data);
-    console.log("data==>", res);
+    if (res.status && res.data) {
+      setUserData(res.data[0]);
+      navigate("/");
+    }
     setLoading(false);
   };
 
