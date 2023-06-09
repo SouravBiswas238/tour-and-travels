@@ -11,8 +11,11 @@ import AiSalesBot from './AdminDashboard/Products/AiSalesBot';
 import DashboardHome from './AdminDashboard/DashboardHome/DashboardHome';
 import BlogPage from './Component/Blogs/BlogPage';
 import SingleBlogPage from './Component/Blogs/SingleBlogPage';
-import Login from './Component/Shared/Login/Login';
-import RegisterForm from './Component/Shared/Login/RegisterForm';
+import Login from './Component/Shared/Authentication/Login';
+import RegisterForm from './Component/Shared/Authentication/RegisterForm';
+import AddTour from './AdminDashboard/AddTour/AddTour';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
@@ -37,11 +40,12 @@ function App() {
         <Route path="/admin" element={<MainAdmin />}>
           <Route index element={<DashboardHome />}></Route>
           <Route path="aiSalesBot" element={<AiSalesBot />}></Route>
+          <Route path="addTour" element={<AddTour />}></Route>
         </Route>
       </Routes>
 
 
-
+      <ToastContainer />
       {showFooter && <Footer />}
     </div>
   );
