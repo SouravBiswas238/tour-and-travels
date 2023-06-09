@@ -1,12 +1,9 @@
 .header {
-    height: 95vh;
     color: white;
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(27, 32, 32, 0.315)), to(rgba(142, 168, 168, 0.384))), url("img/H3.jpg");
-    background: linear-gradient(rgba(27, 32, 32, 0.315), rgba(142, 168, 168, 0.384)), url("../../../asset/Img/sajek.jpg");
+    background: linear-gradient(rgba(72, 223, 223, 0.864), rgb(11, 228, 228)), url("../../../asset/Img/sajek.jpg");
     position: relative;
     background-size: cover;
     background-position: center;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 
@@ -25,16 +22,15 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     text-align: center;
+
 }
 
 .header__text-box .heading__primary {
     color: #fff;
     text-transform: uppercase;
     margin-bottom: 6rem;
-    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
 
@@ -43,24 +39,21 @@
     font-size: 5rem;
     font-weight: 400;
     letter-spacing: 1.5rem;
-    -webkit-animation: moveInRight 2s ease-in-out .2s;
-    animation: moveInRight 2s ease-in-out .2s;
+    animation: moveInLeft 2s ease-in-out .2s;
+    animation-fill-mode: forwards;
+
     /* animation: name duration timing-function delay iteration-count direction fill-mode; */
 }
 
 .header__text-box .heading__primary--sub {
-    display: block;
     font-size: 2rem;
     font-weight: 700;
     letter-spacing: .75rem;
-    -webkit-animation: moveInLeft 2s ease-in-out .2s;
     animation: moveInLeft 2s ease-in-out .2s;
 }
 
 .header__text-box .my-btn--animated {
-    -webkit-animation: animated 1s ease-in-out .2s;
     animation: animated 1s ease-in-out .2s;
-    -webkit-animation-fill-mode: backwards;
     animation-fill-mode: backwards;
 }
 
@@ -69,4 +62,32 @@
     transform: scaleX(1.3) scaleY(1.6);
     background-color: white;
     opacity: 0;
+}
+
+/* Animation */
+@keyframes moveInLeft {
+    0% {
+        transform: translateX(3rem);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translateX(-1rem);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(0);
+    }
+}
+
+@keyframes animated {
+    0% {
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+
+    100% {
+        transform: translate(0);
+    }
 }

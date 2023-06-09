@@ -1,149 +1,163 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect } from 'react';
+import { useState } from 'react';
+import { useScrollPosition } from '../../../hooks/useScrollPosition';
 import './PopularTour.css'
 
 const PopularTour = () => {
+    const scrollPosition = useScrollPosition();
+    const [tourData, setTourData] = useState([]);
+
+    console.log(tourData)
+
+    useEffect(() => {
+        async function getAllData() {
+            try {
+                const response = await axios.get('http://localhost:5000/api/tour/all');
+                setTourData(response);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+        // getAllData()
+    }, [])
+
+
+
     return (
-        <div>
-            <section class="section__tours">
-                <div class="text-center my-2">
-                    <h2 class="heading-secondary text-[2rem]">
-                        Most popular tour
-                    </h2>
+        <div className={`${scrollPosition === 0 ? 'relative top-[-80px]' : ''} overflow-hidden`}>
+            <section className="section__tours">
+                <div className='group my-8'>
+                    <h2 className='text-center text-4xl font-semibold text-black mb-6 uppercase '>Most Popular tours</h2>
+                    <div className='border-b-2 w-28 -mt-2 mx-auto text-center transition-all duration-300 border-[#12dd2a] group-hover:scale-x-[15]'></div>
                 </div>
-                <div class="">
-                    <div class="flex flex-wrap items-stretch -mx-4">
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 md:gap-2 ">
 
-                        <div class="card  flex w-auto pb-5 px-1  md:w-1/2 lg:w-1/4 lg:mb-0">
-                            <div class="card__slide my-shadow">
-                                <div class="card__slide-font">
-                                    <div class="card-picture card-pic-1">
-                                    </div>
-                                    <h4 class="card-heading">
-                                        <span class="card-heading-1">The sea Explore</span>
-                                    </h4>
-                                    <div class="w-full  mx-auto text-center">
-                                        <ul class="card-ul py-10 text-center">
-                                            <li className='text-center w-[10rem] mx-auto py-1 '>3 days tour</li>
-                                            <li className='text-center w-[10rem] mx-auto py-1'>Up to 30 people</li>
-                                            <li className='text-center w-[10rem] mx-auto py-1'>2 tour gain</li>
-                                            <li className='text-center w-[10rem] mx-auto py-1'>sleepin facility</li>
-                                            <li className='text-center w-[10rem] mx-auto py-1'>sleepin facility</li>
-                                        </ul>
-                                    </div>
+                    <div className="card   flex w-auto pb-5 px-1  lg:mb-0">
+                        <div className="card__slide shadow-md">
+                            <div className="absolute w-full  ">
+                                <div className="card-picture card-pic-1">
                                 </div>
-
-                                <div class="card__slide-back  bg-gradient-to-r from-purple-500 to-pink-500">
-                                    <div class="card-backpart">
-                                        <p class="prize-text">Only</p>
-                                        <p class="prize-value">$279</p>
-                                        <a href="#" class="btn btn--white">Buy Now</a>
-
-                                    </div>
+                                <h4 className="flex flex-wrap relative left-1/3 top-[-4rem] font-semibold ">
+                                    <span className=" text-white px-4 text-xl py-1 bg-gradient-to-r from-cyan-400 to-blue-400">The sea Explore</span>
+                                </h4>
+                                <div className="w-full  mx-auto text-center">
+                                    <ul className=" py-2 text-center">
+                                        <li className='text-center w-[50%] border-b-2 border-gray-200 mx-auto py-1 '>3 days tour</li>
+                                        <li className='text-center w-[50%] border-b-2 border-gray-200 mx-auto py-1'>Up to 30 people</li>
+                                        <li className='text-center w-[50%] border-b-2 border-gray-200 mx-auto py-1'>2 tour gain</li>
+                                        <li className='text-center w-[50%] border-b-2 border-gray-200 mx-auto py-1'>sleepin facility</li>
+                                        <li className='text-center w-[50%] border-b-2 border-gray-200 mx-auto py-1'>sleepin facility</li>
+                                    </ul>
                                 </div>
-
                             </div>
-                        </div>
-                        <div class="card  flex w-auto pb-5  px-1   md:w-1/2 lg:w-1/4 lg:mb-0">
-                            <div class="card__slide my-shadow">
-                                <div class="card__slide-font">
-                                    <div class="card-picture card-pic-1">
-                                    </div>
-                                    <h4 class="card-heading">
-                                        <span class="card-heading-1">The sea Explore</span>
-                                    </h4>
-                                    <div class="w-full  mx-auto text-center">
-                                        <ul class="card-ul py-10 text-center">
-                                            <li className='text-center w-[10rem] mx-auto py-1 '>3 days tour</li>
-                                            <li className='text-center w-[10rem] mx-auto py-1'>Up to 30 people</li>
-                                            <li className='text-center w-[10rem] mx-auto py-1'>2 tour gain</li>
-                                            <li className='text-center w-[10rem] mx-auto py-1'>sleepin facility</li>
-                                            <li className='text-center w-[10rem] mx-auto py-1'>sleepin facility</li>
-                                        </ul>
-                                    </div>
+
+                            <div className="card__slide-back  bg-gradient-to-r from-purple-500 to-pink-500">
+                                <div className="card-backpart">
+                                    <p className="prize-text">Only</p>
+                                    <p className="prize-value">$279</p>
+                                    <a href="#" className="btn btn--white">Buy Now</a>
+
                                 </div>
-
-                                <div class="card__slide-back  bg-gradient-to-r from-purple-500 to-pink-500">
-                                    <div class="card-backpart">
-                                        <p class="prize-text">Only</p>
-                                        <p class="prize-value">$279</p>
-                                        <a href="#" class="btn btn--white">Buy Now</a>
-
-                                    </div>
-                                </div>
-
                             </div>
+
                         </div>
-
-                        <div class="card  flex w-auto pb-5  px-1   md:w-1/2 lg:w-1/4 lg:mb-0">
-                            <div class="card__slide my-shadow">
-                                <div class="card__slide-font">
-                                    <div class="card-picture card-pic-1">
-                                    </div>
-                                    <h4 class="card-heading">
-                                        <span class="card-heading-1">The sea Explore</span>
-                                    </h4>
-                                    <div class="w-full py-10 mx-auto text-center">
-                                        <ul class="card-ul text-center">
-                                            <li className='text-center w-[10rem] mx-auto py-1 '>3 days tour</li>
-                                            <li className='text-center w-[10rem] mx-auto py-1'>Up to 30 people</li>
-                                            <li className='text-center w-[10rem] mx-auto py-1'>2 tour gain</li>
-                                            <li className='text-center w-[10rem] mx-auto py-1'>sleepin facility</li>
-                                            <li className='text-center w-[10rem] mx-auto py-1'>sleepin facility</li>
-                                        </ul>
-                                    </div>
+                    </div>
+                    <div className="card   flex w-auto pb-5 px-1  lg:mb-0">
+                        <div className="card__slide shadow-md">
+                            <div className="absolute w-full  ">
+                                <div className="card-picture card-pic-1">
                                 </div>
-
-                                <div class="card__slide-back  bg-gradient-to-r from-purple-500 to-pink-500">
-                                    <div class="card-backpart">
-                                        <p class="prize-text">Only</p>
-                                        <p class="prize-value">$279</p>
-                                        <a href="#" class="btn btn--white">Buy Now</a>
-
-                                    </div>
+                                <h4 className="flex flex-wrap relative left-1/2 top-[-4rem] font-semibold ">
+                                    <span className=" text-white px-4 text-xl py-1 bg-gradient-to-r from-cyan-400 to-blue-400">The sea Explore</span>
+                                </h4>
+                                <div className="w-full  mx-auto text-center">
+                                    <ul className=" py-2 text-center">
+                                        <li className='text-center w-[50%] border-b-2 border-gray-200 mx-auto py-1 '>3 days tour</li>
+                                        <li className='text-center w-[50%] border-b-2 border-gray-200 mx-auto py-1'>Up to 30 people</li>
+                                        <li className='text-center w-[50%] border-b-2 border-gray-200 mx-auto py-1'>2 tour gain</li>
+                                        <li className='text-center w-[50%] border-b-2 border-gray-200 mx-auto py-1'>sleepin facility</li>
+                                        <li className='text-center w-[50%] border-b-2 border-gray-200 mx-auto py-1'>sleepin facility</li>
+                                    </ul>
                                 </div>
-
                             </div>
-                        </div>
 
-                        <div class="card  flex w-auto pb-5  px-1   md:w-1/2 lg:w-1/4 lg:mb-0">
-                            <div class="card__slide my-shadow">
-                                <div class="card__slide-font">
-                                    <div class="card-picture card-pic-1">
-                                    </div>
-                                    <h4 class="card-heading">
-                                        <span class="card-heading-1">The sea Explore</span>
-                                    </h4>
-                                    <div class="w-full py-10 mx-auto text-center">
-                                        <ul class="card-ul text-center">
-                                            <li className='text-center w-[10rem] mx-auto py-1 '>3 days tour</li>
-                                            <li className='text-center w-[10rem] mx-auto py-1'>Up to 30 people</li>
-                                            <li className='text-center w-[10rem] mx-auto py-1'>2 tour gain</li>
-                                            <li className='text-center w-[10rem] mx-auto py-1'>sleepin facility</li>
-                                            <li className='text-center w-[10rem] mx-auto py-1'>sleepin facility</li>
-                                        </ul>
-                                    </div>
+                            <div className="card__slide-back  bg-gradient-to-r from-purple-500 to-pink-500">
+                                <div className="card-backpart">
+                                    <p className="prize-text">Only</p>
+                                    <p className="prize-value">$279</p>
+                                    <a href="#" className="btn btn--white">Buy Now</a>
+
                                 </div>
-
-                                <div class="card__slide-back  bg-gradient-to-r from-purple-500 to-pink-500">
-                                    <div class="card-backpart">
-                                        <p class="prize-text">Only</p>
-                                        <p class="prize-value">$279</p>
-                                        <a href="#" class="btn btn--white">Buy Now</a>
-
-                                    </div>
-                                </div>
-
                             </div>
+
                         </div>
+                    </div>
+                    <div className="card   flex w-auto pb-5 px-1  lg:mb-0">
+                        <div className="card__slide shadow-md">
+                            <div className="absolute w-full  ">
+                                <div className="card-picture card-pic-1">
+                                </div>
+                                <h4 className="flex flex-wrap relative left-1/3 top-[-4rem] font-semibold ">
+                                    <span className=" text-white px-4 text-xl py-1 bg-gradient-to-r from-cyan-400 to-blue-400">The sea Explore</span>
+                                </h4>
+                                <div className="w-full  mx-auto text-center">
+                                    <ul className=" py-2 text-center">
+                                        <li className='text-center w-[50%] border-b-2 border-gray-200 mx-auto py-1 '>3 days tour</li>
+                                        <li className='text-center w-[50%] border-b-2 border-gray-200 mx-auto py-1'>Up to 30 people</li>
+                                        <li className='text-center w-[50%] border-b-2 border-gray-200 mx-auto py-1'>2 tour gain</li>
+                                        <li className='text-center w-[50%] border-b-2 border-gray-200 mx-auto py-1'>sleepin facility</li>
+                                        <li className='text-center w-[50%] border-b-2 border-gray-200 mx-auto py-1'>sleepin facility</li>
+                                    </ul>
+                                </div>
+                            </div>
 
+                            <div className="card__slide-back  bg-gradient-to-r from-purple-500 to-pink-500">
+                                <div className="card-backpart">
+                                    <p className="prize-text">Only</p>
+                                    <p className="prize-value">$279</p>
+                                    <a href="#" className="btn btn--white">Buy Now</a>
 
+                                </div>
+                            </div>
 
+                        </div>
+                    </div>
+                    <div className="card   flex w-auto pb-5 px-1  lg:mb-0">
+                        <div className="card__slide shadow-md">
+                            <div className="absolute w-full  ">
+                                <div className="card-picture card-pic-1">
+                                </div>
+                                <h4 className="flex flex-wrap relative left-1/3 top-[-4rem] font-semibold ">
+                                    <span className=" text-white px-4 text-xl py-1 bg-gradient-to-r from-cyan-400 to-blue-400">The sea Explore</span>
+                                </h4>
+                                <div className="w-full  mx-auto text-center">
+                                    <ul className=" py-2 text-center">
+                                        <li className='text-center w-[50%] border-b-2 border-gray-200 mx-auto py-1 '>3 days tour</li>
+                                        <li className='text-center w-[50%] border-b-2 border-gray-200 mx-auto py-1'>Up to 30 people</li>
+                                        <li className='text-center w-[50%] border-b-2 border-gray-200 mx-auto py-1'>2 tour gain</li>
+                                        <li className='text-center w-[50%] border-b-2 border-gray-200 mx-auto py-1'>sleepin facility</li>
+                                        <li className='text-center w-[50%] border-b-2 border-gray-200 mx-auto py-1'>sleepin facility</li>
+                                    </ul>
+                                </div>
+                            </div>
 
+                            <div className="card__slide-back  bg-gradient-to-r from-purple-500 to-pink-500">
+                                <div className="card-backpart">
+                                    <p className="prize-text">Only</p>
+                                    <p className="prize-value">$279</p>
+                                    <a href="#" className="btn btn--white">Buy Now</a>
+
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
 
+
                 </div>
-                <div class="text-center mx-auto underline my-2 ">
-                    <a href="#" class="">Discover our tours </a>
+                <div className="text-center mx-auto underline my-2 ">
+                    <a href="#" className="">Discover our tours </a>
                 </div>
                 <div className='border-b-2 mt-5 border-grey-200'></div>
             </section>
