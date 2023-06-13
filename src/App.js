@@ -4,6 +4,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AddTour from "./AdminDashboard/AddTour/AddTour";
 import AllTour from "./AdminDashboard/AllTour/AllTour";
+import AllBlogs from "./AdminDashboard/AllBlogs/AllBlogs.jsx";
 import MainAdmin from "./AdminDashboard/MainAdmin/MainAdmin";
 import "./App.css";
 import BlogPage from "./Component/Blogs/BlogPage";
@@ -58,6 +59,7 @@ function App() {
         >
           <Route index element={<AllTour />}></Route>
           <Route path="addTour" element={<AddTour />}></Route>
+          <Route path="allBlog" element={<AllBlogs />}></Route>
         </Route>
       </Routes>
 
