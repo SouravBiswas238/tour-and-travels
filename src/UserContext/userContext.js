@@ -5,6 +5,7 @@ export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const [userData, setUserData] = useState({});
+  const [deleteData, setDeleteData] = useState({});
   const [tours, setTours] = useState([]);
 
   const email = userData?.email;
@@ -17,7 +18,7 @@ export const UserProvider = ({ children }) => {
       setTours(response?.data)
     }
     fetchData();
-  }, [])
+  }, [deleteData])
 
   useEffect(() => {
     const data = localStorage.getItem("userData");
@@ -31,6 +32,7 @@ export const UserProvider = ({ children }) => {
     userData,
     setUserData,
     tours,
+    setDeleteData,
     email
 
   };

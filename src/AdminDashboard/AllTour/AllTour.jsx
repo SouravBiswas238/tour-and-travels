@@ -2,19 +2,22 @@ import React, { useContext } from 'react';
 import { UserContext } from '../../UserContext/userContext';
 import Api from '../../utility/api';
 import TourTable from './MiniComponent/TourTable';
+import { toast } from 'react-toastify';
+
 
 const AllTour = () => {
 
     // fetch data from backend
-    const { tours, setTours, userData, email } = useContext(UserContext);
+    const { tours, setTours, userData, email, setDeleteData } = useContext(UserContext);
 
     // console.log(tours)
 
 
     const handleDelete = async (tourId) => {
-        console.log(tourId)
-        const response = await Api.delete('/tour/delete', { email, tourId });
-        console.log(response.data)
+        const data = { tourId: tourId, email: email }
+        const response = await Api.delete('/tour/delete', { data });
+        setDeleteData(response?.data)
+        response?.message && toast.success(response?.message);
 
 
     };

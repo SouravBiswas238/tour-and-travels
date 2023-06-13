@@ -39,7 +39,6 @@ function App() {
 
         <Route path="/admin" element={<MainAdmin />}>
           <Route index element={<AllTour />}></Route>
-          <Route path="aiSalesBot" element={<AiSalesBot />}></Route>
           <Route path="addTour" element={<AddTour />}></Route>
         </Route>
       </Routes>
