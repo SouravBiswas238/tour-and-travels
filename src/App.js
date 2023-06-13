@@ -57,7 +57,6 @@ function App() {
           </AdminPrivate>
         }>
           <Route index element={<AllTour />}></Route>
-          <Route path="aiSalesBot" element={<AiSalesBot />}></Route>
           <Route path="addTour" element={<AddTour />}></Route>
         </Route>
       </Routes>

@@ -1,18 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import Api from '../../utility/api';
+import { UserContext } from '../../UserContext/userContext';
 
 const AddTour = () => {
     const { register, handleSubmit, reset, formState: { errors }, setValue, watch } = useForm();
+    const { email, isLoading, isError } = useContext(UserContext);
+    console.log(email)
 
     const onSubmit = async (data) => {
         try {
             // Make a POST request to the API to save the tour data
-            const response = await Api.post('/tour/create', { "tourBody": data });
+            const response = await Api.post('/tour/create', { email: email, "tourBody": data });
             console.log(response); // You can replace this with your desired action
 
             if (response.data) {
@@ -20,7 +23,7 @@ const AddTour = () => {
             }
             reset();
             // Display success notification
-            toast.success('Tour added successfully');
+            toast.success(response?.message);
         } catch (error) {
             // Display error notification
             toast.error('Failed to add tour');
