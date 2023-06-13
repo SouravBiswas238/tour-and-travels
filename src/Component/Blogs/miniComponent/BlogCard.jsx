@@ -1,13 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import image from "../../../asset/Img/saintmartin.jpg";
 
 const BlogCard = ({ blog }) => {
   return (
     <div className="bg-white rounded-lg shadow-md ">
       <img
         className="w-full h-40 object-cover object-center rounded-t-lg"
-        src={image}
+        src={blog?.coverImage}
         alt={blog.title}
       />
       <div className="p-6">
