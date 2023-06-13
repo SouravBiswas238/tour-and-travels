@@ -16,12 +16,18 @@ import AddTour from './AdminDashboard/AddTour/AddTour';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AllTour from './AdminDashboard/AllTour/AllTour';
+import Private from './Component/Private/Private';
+import { useContext } from 'react';
+import { UserContext } from './UserContext/userContext';
+import AdminPrivate from './Component/Private/AdminPrivate';
 
 
 function App() {
   const location = useLocation();
   const showFooter = !location?.pathname.includes("admin");
-
+  const {userData}=useContext(UserContext);
+  const data= JSON.parse(localStorage.getItem("userData"))
+  console.log(userData)
   return (
     <div className='mx-auto container overflow-hidden'>
 
@@ -29,7 +35,15 @@ function App() {
 
       <Routes>
         <Route path="/" element={<HomeIndex />} />
-        <Route path="/blog" element={<BlogPage />} />
+        {/* <Route path="/blog" element={<BlogPage />} /> */}
+        <Route
+            path="/blog"
+            element={
+              <Private user={userData}> 
+                <BlogPage/>
+              </Private>
+            }
+          />
         <Route path="/blog/:id" element={<SingleBlogPage />} />
         <Route path="/single" element={<SingleTour />} />
 
@@ -37,7 +51,11 @@ function App() {
         <Route path="/signUp" element={<RegisterForm />} />
 
 
-        <Route path="/admin" element={<MainAdmin />}>
+        <Route path="/admin" element={
+          <AdminPrivate user={data}>
+             <MainAdmin />
+          </AdminPrivate>
+        }>
           <Route index element={<AllTour />}></Route>
           <Route path="aiSalesBot" element={<AiSalesBot />}></Route>
           <Route path="addTour" element={<AddTour />}></Route>
