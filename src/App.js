@@ -7,7 +7,6 @@ import Footer from './Component/Shared/Footer';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import SingleTour from './Component/Pages/SingleTour/SingleTour';
 import MainAdmin from './AdminDashboard/MainAdmin/MainAdmin';
-import AiSalesBot from './AdminDashboard/Products/AiSalesBot';
 import BlogPage from './Component/Blogs/BlogPage';
 import SingleBlogPage from './Component/Blogs/SingleBlogPage';
 import Login from './Component/Shared/Authentication/Login';
@@ -21,6 +20,7 @@ import { useContext } from 'react';
 import { UserContext } from './UserContext/userContext';
 import AdminPrivate from './Component/Private/AdminPrivate';
 import AllBlogs from './AdminDashboard/AllBlogs/AllBlogs';
+import Contact from './Component/Contact/Contact';
 
 
 function App() {
@@ -50,6 +50,7 @@ function App() {
 
         <Route path="/login" element={<Login />} />
         <Route path="/signUp" element={<RegisterForm />} />
+        <Route path="/contact" element={<Contact />} />
 
 
         <Route path="/admin" element={
