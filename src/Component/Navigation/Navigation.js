@@ -95,6 +95,7 @@ const Navigation = () => {
                     onClick={() => {
                       closedNavbarAll();
                       setUserData({});
+                      localStorage.removeItem("userData");
                     }}
                     className="mr-5 mb-4 md:mb-0"
                   >
