@@ -90,6 +90,19 @@ const Navigation = () => {
                     Contact
                   </NavLink>
                 </li>
+                {userData?.email && userData?.role === "admin" && (
+                  <li onClick={closedNavbarAll} className="mr-5 mb-4 md:mb-0">
+                    <NavLink
+                      to="/admin"
+                      className={({ isActive }) =>
+                        isActive ? active : deActive
+                      }
+                    >
+                      <MdOutlineConnectWithoutContact className="md:hidden mr-2" />
+                      Admin Panel
+                    </NavLink>
+                  </li>
+                )}
                 {userData?.email && (
                   <li
                     onClick={() => {

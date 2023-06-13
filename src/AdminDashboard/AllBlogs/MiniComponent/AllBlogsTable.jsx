@@ -1,7 +1,6 @@
 import React from 'react';
 import DataTable from 'react-data-table-component';
 import { BsTrash } from 'react-icons/bs';
-import { IoMdCloseCircleOutline } from 'react-icons/io';
 import { IoCloseOutline } from 'react-icons/io5';
 import { TiTick } from 'react-icons/ti';
 
