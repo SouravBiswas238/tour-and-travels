@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import logo from '../../asset/Img/logo.png'
 const Footer = () => {
     return (
-        <footer className="px-4 divide-y bg-gray-300">
+        <footer className="px-4 divide-y bg-black">
             <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
                 <div className="lg:w-1/3">
                     <Link to='/' className="space-y-4 text-2xl  font-bold">
@@ -15,8 +15,8 @@ const Footer = () => {
                     </Link>
                 </div>
                 <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
-                    <div className="space-y-3">
-                        <h3 className="tracking-wide uppercase  text-gray-50">Product</h3>
+                    <div className="space-y-3 text-gray-400">
+                        <h3 className="tracking-wide uppercase  text-gray-50 text-lg font-bold">Product</h3>
                         <ul className="space-y-1">
                             <li>
                                 <a rel="noopener noreferrer" href="#">Features</a>
@@ -32,8 +32,8 @@ const Footer = () => {
                             </li>
                         </ul>
                     </div>
-                    <div className="space-y-3">
-                        <h3 className="tracking-wide uppercase  text-gray-50">Company</h3>
+                    <div className="space-y-3 text-gray-400">
+                        <h3 className="tracking-wide uppercase  text-gray-50 text-lg font-bold">Company</h3>
                         <ul className="space-y-1">
                             <li>
                                 <a rel="noopener noreferrer" href="#">Privacy</a>
@@ -43,8 +43,8 @@ const Footer = () => {
                             </li>
                         </ul>
                     </div>
-                    <div className="space-y-3">
-                        <h3 className="uppercase  text-gray-50">Developers</h3>
+                    <div className="space-y-3 text-gray-400">
+                        <h3 className="uppercase  text-gray-50 text-lg font-bold">Developers</h3>
                         <ul className="space-y-1">
                             <li>
                                 <a rel="noopener noreferrer" href="#">Public API</a>
@@ -57,8 +57,8 @@ const Footer = () => {
                             </li>
                         </ul>
                     </div>
-                    <div className="space-y-3">
-                        <div className="uppercase  text-gray-50">Social media</div>
+                    <div className="space-y-3 text-gray-400">
+                        <div className="uppercase  text-gray-50 text-lg font-bold">Social media</div>
                         <div className="flex justify-start space-x-3">
                             <a rel="noopener noreferrer" href="#" title="Facebook" className="flex items-center p-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" className="w-5 h-5 fill-current">
