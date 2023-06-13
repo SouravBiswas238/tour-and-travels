@@ -26,7 +26,8 @@ const SingleBlogPage = () => {
           <p class="text-gray-600 mb-4">
             Published on <span class="font-bold">June 13, 2023</span> by{" "}
             <span class="font-bold">
-              {blog?.author[0]?.firstName} {blog?.author[0]?.lastName}
+              {blog?.author && blog?.author[0]?.firstName}{" "}
+              {blog?.author && blog?.author[0]?.lastName}
             </span>
           </p>
           <img src={img3} alt="" className="w-full mb-6 rounded-lg h-[400px]" />
