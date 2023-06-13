@@ -21,6 +21,7 @@ const Login = () => {
     if (res.status && res.data) {
       setUserData(res.data[0]);
       toast.success("Log in Success");
+      localStorage.setItem("userData", JSON.stringify(res.data[0]));
       navigate("/");
     } else {
       toast.error(res.message);

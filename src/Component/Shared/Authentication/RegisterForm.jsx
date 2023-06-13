@@ -24,6 +24,7 @@ const RegisterForm = () => {
     const res = await Api.post("/user/signUp", data);
     if (res.status && res.data) {
       setUserData(res.data);
+      localStorage.setItem("userData", JSON.stringify(res.data));
       toast.success("Registration Complete");
       navigate("/");
     } else {
