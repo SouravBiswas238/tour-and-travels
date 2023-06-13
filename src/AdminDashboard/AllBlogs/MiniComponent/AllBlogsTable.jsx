@@ -1,8 +1,12 @@
 import React from 'react';
 import DataTable from 'react-data-table-component';
-import { BsPencilSquare, BsTrash } from 'react-icons/bs';
+import { BsTrash } from 'react-icons/bs';
+import { IoMdCloseCircleOutline } from 'react-icons/io';
+import { IoCloseOutline } from 'react-icons/io5';
+import { TiTick } from 'react-icons/ti';
 
 const AllBlogsTable = ({ data, onDelete }) => {
+    console.log(data)
     const columns = [
         {
             name: 'Title',
@@ -10,30 +14,24 @@ const AllBlogsTable = ({ data, onDelete }) => {
             sortable: true,
         },
         {
-            name: 'Description',
-            selector: 'description',
+            name: 'Content',
+            selector: 'content',
             sortable: true,
         },
         {
-            name: 'Duration',
-            selector: 'duration',
-            sortable: true,
-        },
-        {
-            name: 'Start Dates',
+            name: 'coverImage',
+            selector: 'coverImage',
             cell: (row) => (
-                <div>
-                    {row?.startDates?.map((date) => (
-                        <p key={date}>{date.substring(0, 10)}</p>
-                    ))}
-                </div>
-            ),
+                <img className='h-10 w-10 ' src={row.coverImage} alt="" />
+            )
         },
         {
-            name: 'Price',
-            selector: 'price',
+            name: 'status',
+            selector: 'status',
             sortable: true,
         },
+
+
         {
             name: 'Actions',
             cell: (row) => (
@@ -42,13 +40,19 @@ const AllBlogsTable = ({ data, onDelete }) => {
                         className="text-blue-500 hover:text-blue-700 mr-2"
                         onClick={() => handleEdit(row?._id)}
                     >
-                        <BsPencilSquare />
+                        <TiTick className='text-xl' />
+                    </button>
+                    <button
+                        className="text-blue-500 hover:text-blue-700 mr-2"
+                        onClick={() => handleEdit(row?._id)}
+                    >
+                        <IoCloseOutline className='text-xl' />
                     </button>
                     <button
                         className="text-red-500 hover:text-red-700"
                         onClick={() => onDelete(row?._id)}
                     >
-                        <BsTrash />
+                        <BsTrash className='text-[15px]' />
                     </button>
                 </div>
             ),
