@@ -4,7 +4,7 @@ import { BsTrash } from 'react-icons/bs';
 import { IoCloseOutline } from 'react-icons/io5';
 import { TiTick } from 'react-icons/ti';
 
-const AllBlogsTable = ({ data, onDelete }) => {
+const AllBlogsTable = ({ data, onDelete, handleApprove }) => {
     console.log(data)
     const columns = [
         {
@@ -35,24 +35,25 @@ const AllBlogsTable = ({ data, onDelete }) => {
             name: 'Actions',
             cell: (row) => (
                 <div>
-                    <button
-                        className="text-blue-500 hover:text-blue-700 mr-2"
-                        onClick={() => handleEdit(row?._id)}
-                    >
-                        <TiTick className='text-xl' />
-                    </button>
-                    <button
-                        className="text-blue-500 hover:text-blue-700 mr-2"
-                        onClick={() => handleEdit(row?._id)}
-                    >
-                        <IoCloseOutline className='text-xl' />
-                    </button>
-                    <button
-                        className="text-red-500 hover:text-red-700"
-                        onClick={() => onDelete(row?._id)}
-                    >
-                        <BsTrash className='text-[15px]' />
-                    </button>
+                    {
+                        row.status === "published" ? <p>Published</p> :
+                            <div>
+                                <button
+                                    className="text-blue-500 hover:text-blue-700 mr-2"
+                                    // eslint-disable-next-line no-undef
+                                    onClick={() => handleApprove(row?._id)}
+                                >
+                                    <TiTick className='text-xl' />
+                                </button>
+
+                                <button
+                                    className="text-red-500 hover:text-red-700"
+                                    onClick={() => onDelete(row?._id)}
+                                >
+                                    <BsTrash className='text-[15px]' />
+                                </button>
+                            </div>
+                    }
                 </div>
             ),
         },
@@ -62,6 +63,7 @@ const AllBlogsTable = ({ data, onDelete }) => {
         // Handle the edit action for the given ID
         console.log(`Edit tour with ID ${id}`);
     };
+
 
     return (
         <DataTable

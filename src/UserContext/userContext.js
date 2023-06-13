@@ -6,7 +6,7 @@ export const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const [userData, setUserData] = useState({});
   const [deleteData, setDeleteData] = useState({});
-  const [deleteBlog, setDeleteBlog] = useState({});
+  const [refresh, setRefresh] = useState({});
   const [tours, setTours] = useState([]);
   const [blogs, setBlogs] = useState([]);
 
@@ -29,7 +29,7 @@ export const UserProvider = ({ children }) => {
       setBlogs(response?.data)
     }
     fetchData();
-  }, [deleteBlog])
+  }, [refresh])
 
   // set user local storage
   useEffect(() => {
@@ -45,7 +45,7 @@ export const UserProvider = ({ children }) => {
     setUserData,
     tours,
     blogs,
-    setDeleteBlog,
+    setRefresh,
     setDeleteData,
     email
 
