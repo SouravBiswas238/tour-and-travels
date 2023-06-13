@@ -31,7 +31,7 @@ const PopularTour = () => {
                             </h4>
                             <div className="w-full  mx-auto text-center">
                                 <ul className=" py-2 text-center">
-                                    <li className='text-center w-[50%] border-b-2 border-gray-200 mx-auto py-1 '>{tour?.duration} days tour</li>
+                                    <li className='text-center w-[50%] border-b-2 border-gray-200 mx-auto py-1 '>{tour?.duration} days you</li>
                                     <li className='text-center w-[50%] border-b-2 border-gray-200 mx-auto py-1'>Up to {tour?.maxGroupSize} people</li>
                                     <li className='text-center w-[50%] border-b-2 border-gray-200 mx-auto py-1'>Tours start {tour?.startDates[0].split("T")[0]}</li>
                                     <li className='text-center w-[50%] border-b-2 border-gray-200 mx-auto py-1'>Start location {tour?.startLocation}</li>

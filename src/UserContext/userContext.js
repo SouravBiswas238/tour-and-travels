@@ -19,7 +19,12 @@ export const UserProvider = ({ children }) => {
     fetchData();
   }, [])
 
-
+  useEffect(() => {
+    const data = localStorage.getItem("userData");
+    if (data) {
+      setUserData(JSON.parse(data));
+    }
+  }, []);
 
   //this state stored user data  //==> Don't move this one !
   const contextData = {
