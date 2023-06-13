@@ -20,14 +20,15 @@ import Private from './Component/Private/Private';
 import { useContext } from 'react';
 import { UserContext } from './UserContext/userContext';
 import AdminPrivate from './Component/Private/AdminPrivate';
+import AllBlogs from './AdminDashboard/AllBlogs/AllBlogs';
 
 
 function App() {
   const location = useLocation();
   const showFooter = !location?.pathname.includes("admin");
-  const {userData}=useContext(UserContext);
-  const data= JSON.parse(localStorage.getItem("userData"))
-  console.log(userData)
+  const { userData } = useContext(UserContext);
+  const data = JSON.parse(localStorage.getItem("userData"))
+  // console.log(userData)
   return (
     <div className='mx-auto container overflow-hidden'>
 
@@ -37,13 +38,13 @@ function App() {
         <Route path="/" element={<HomeIndex />} />
         {/* <Route path="/blog" element={<BlogPage />} /> */}
         <Route
-            path="/blog"
-            element={
-              <Private user={userData}> 
-                <BlogPage/>
-              </Private>
-            }
-          />
+          path="/blog"
+          element={
+            <Private user={userData}>
+              <BlogPage />
+            </Private>
+          }
+        />
         <Route path="/blog/:id" element={<SingleBlogPage />} />
         <Route path="/single" element={<SingleTour />} />
 
@@ -53,11 +54,12 @@ function App() {
 
         <Route path="/admin" element={
           <AdminPrivate user={data}>
-             <MainAdmin />
+            <MainAdmin />
           </AdminPrivate>
         }>
           <Route index element={<AllTour />}></Route>
           <Route path="addTour" element={<AddTour />}></Route>
+          <Route path="allBlog" element={<AllBlogs />}></Route>
         </Route>
       </Routes>
 

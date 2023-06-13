@@ -35,14 +35,21 @@ const Sidebar = ({ dashboardSwitch }) => {
           </Link>
           <Link to="addTour">
             <li className={dashboardLinkStyle}>
-              <AiFillFileText className="mr-2" />
+              <IoMdPersonAdd className="mr-2" />
               <span className={`${!dbSwitch && 'hidden py-2'}`}>Add Tour</span>
+            </li>
+          </Link>
+
+          <Link to="allBlog">
+            <li className={dashboardLinkStyle}>
+              <AiFillFileText className="mr-2" />
+              <span className={`${!dbSwitch && 'hidden'}`}> All Blogs</span>
             </li>
           </Link>
 
           <li onClick={() => setArrowSwitch(!arrowSwitch)} className={dashboardLinkStyle}>
             <AiFillFileText className="mr-2" />
-            <span className={`${!dbSwitch && 'hidden'} mx-2`}>Products</span>
+            <span className={`${!dbSwitch && 'hidden'} mx-2`}>Another</span>
             <span className={`${!dbSwitch && 'hidden'}`}>
               {
                 arrowSwitch ? <FaAngleDown className="" /> : <FaAngleUp className="" />
@@ -64,12 +71,6 @@ const Sidebar = ({ dashboardSwitch }) => {
           </ul>
 
 
-          <Link to="">
-            <li className={dashboardLinkStyle}>
-              <IoMdPersonAdd className="mr-2" />
-              <span className={`${!dbSwitch && 'hidden'}`}> Add member</span>
-            </li>
-          </Link>
 
 
 

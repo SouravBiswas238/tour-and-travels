@@ -36,7 +36,7 @@ const CreateBlogButton = () => {
         onCancel={hideModal}
         footer={null}
       >
-        <Form onFinish={handleSubmit(onSubmit)}>
+        <Form onFinish={onSubmit} >
           <Form.Item label="Title" name="title" rules={[{ required: true, message: 'Title is required' }]}>
             <Input />
           </Form.Item>
