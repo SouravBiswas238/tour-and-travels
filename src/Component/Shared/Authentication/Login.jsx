@@ -106,6 +106,17 @@ const Login = () => {
               {loading ? "Loading..." : "Login"}
             </button>
           </div>
+          <div>
+            <p className="text-red ">
+              New in this platform ?{" "}
+              <span
+                className="font-bold text-green-500 cursor-pointer "
+                onClick={() => navigate("/signUp")}
+              >
+                Sign Up
+              </span>
+            </p>
+          </div>
         </form>
       )}
     </div>

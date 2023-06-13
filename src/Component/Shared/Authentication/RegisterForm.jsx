@@ -172,6 +172,17 @@ const RegisterForm = () => {
             {loading ? "Loading..." : "Register"}
           </button>
         </div>
+        <div>
+          <p className="text-red ">
+            ALready have an account ?{" "}
+            <span
+              className="font-bold text-green-500 cursor-pointer "
+              onClick={() => navigate("/login")}
+            >
+              Log in
+            </span>
+          </p>
+        </div>
       </form>
     </div>
   );
