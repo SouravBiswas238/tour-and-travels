@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Button, Modal, Form, Input } from 'antd';
+import Api from '../../utility/api';
+import { UserContext } from '../../UserContext/userContext';
+import { toast } from 'react-toastify';
+
 
 const CreateBlogButton = () => {
-  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  const { register, formState: { errors }, reset } = useForm();
   const [modalVisible, setModalVisible] = React.useState(false);
+
+  const { userData, isLoading, isError } = useContext(UserContext);
 
   const showModal = () => {
     setModalVisible(true);
@@ -14,12 +20,25 @@ const CreateBlogButton = () => {
     setModalVisible(false);
   };
 
-  const onSubmit = (data) => {
-    console.log('Submitted:', data);
-    // Reset form after successful submission
-    reset();
-    // Close the modal
-    hideModal();
+  const onSubmit = async (data) => {
+    try {
+      data.createdBy = userData._id;
+      console.log(data)
+      // Make a POST request to the API to save the tour data
+      const response = await Api.post('/blog/create', { blog: data });
+      console.log(response); // You can replace this with your desired action
+
+      if (response?.data) {
+        reset();
+        hideModal();
+      }
+      // Display success notification
+      toast.success(response?.message);
+    } catch (error) {
+      // Display error notification
+      toast.error('Failed to add tour');
+    }
+
   };
 
   return (
@@ -36,7 +55,7 @@ const CreateBlogButton = () => {
         onCancel={hideModal}
         footer={null}
       >
-        <Form onFinish={handleSubmit(onSubmit)}>
+        <Form onFinish={onSubmit} >
           <Form.Item label="Title" name="title" rules={[{ required: true, message: 'Title is required' }]}>
             <Input />
           </Form.Item>

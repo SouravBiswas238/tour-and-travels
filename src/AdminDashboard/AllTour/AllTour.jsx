@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 const AllTour = () => {
 
     // fetch data from backend
-    const { tours, setTours, userData, email, setDeleteData } = useContext(UserContext);
+    const { tours, email, setDeleteData } = useContext(UserContext);
 
     // console.log(tours)
 

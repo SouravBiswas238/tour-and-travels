@@ -6,12 +6,14 @@ export const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const [userData, setUserData] = useState({});
   const [deleteData, setDeleteData] = useState({});
+  const [deleteBlog, setDeleteBlog] = useState({});
   const [tours, setTours] = useState([]);
+  const [blogs, setBlogs] = useState([]);
 
   const email = userData?.email;
 
 
-  // to get company data data
+  // to get all tour data data
   useEffect(() => {
     async function fetchData() {
       const response = await Api.get('/tour/all');
@@ -20,6 +22,16 @@ export const UserProvider = ({ children }) => {
     fetchData();
   }, [deleteData])
 
+  // to get all blogs data 
+  useEffect(() => {
+    async function fetchData() {
+      const response = await Api.get('/blog/all');
+      setBlogs(response?.data)
+    }
+    fetchData();
+  }, [deleteBlog])
+
+  // set user local storage
   useEffect(() => {
     const data = localStorage.getItem("userData");
     if (data) {
@@ -32,6 +44,8 @@ export const UserProvider = ({ children }) => {
     userData,
     setUserData,
     tours,
+    blogs,
+    setDeleteBlog,
     setDeleteData,
     email
 
