@@ -8,6 +8,7 @@ import MainAdmin from "./AdminDashboard/MainAdmin/MainAdmin";
 import "./App.css";
 import BlogPage from "./Component/Blogs/BlogPage";
 import SingleBlogPage from "./Component/Blogs/SingleBlogPage";
+import Contact from "./Component/Contact/Contact";
 import HomeIndex from "./Component/Home/HomeIndex";
 import Navigation from "./Component/Navigation/Navigation";
 import SingleTour from "./Component/Pages/SingleTour/SingleTour";
@@ -45,6 +46,7 @@ function App() {
 
         <Route path="/login" element={<Login />} />
         <Route path="/signUp" element={<RegisterForm />} />
+        <Route path="/contact" element={<Contact />} />
 
         <Route
           path="/admin"
