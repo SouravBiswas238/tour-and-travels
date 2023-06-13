@@ -83,7 +83,7 @@ const Navigation = () => {
                 </li>
                 <li onClick={closedNavbarAll} className="mr-5 mb-4 md:mb-0  ">
                   <NavLink
-                    to="/news"
+                    to="/contact"
                     className={({ isActive }) => (isActive ? active : deActive)}
                   >
                     <MdOutlineConnectWithoutContact className="md:hidden mr-2" />

@@ -20,6 +20,7 @@ import Private from './Component/Private/Private';
 import { useContext } from 'react';
 import { UserContext } from './UserContext/userContext';
 import AdminPrivate from './Component/Private/AdminPrivate';
+import Contact from './Component/Contact/Contact';
 
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
 
         <Route path="/login" element={<Login />} />
         <Route path="/signUp" element={<RegisterForm />} />
+        <Route path="/contact" element={<Contact />} />
 
 
         <Route path="/admin" element={
