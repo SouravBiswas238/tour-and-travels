@@ -55,7 +55,7 @@ const PopularTour = () => {
             <div className="card__slide-back  bg-gradient-to-r from-purple-500 to-pink-500">
               <div className="card-backpart">
                 <p className="prize-text">Only</p>
-                <p className="prize-value">$279</p>
+                <p className="prize-value">{tour?.price} TK</p>
                 <a
                   className="btn btn--white"
                   onClick={() => {
