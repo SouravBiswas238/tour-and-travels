@@ -13,7 +13,7 @@ const Banner = () => {
 
     return (
         <div>
-            <div className={`${scrollPosition === 0 ? 'top-[-78px] ' : ''} relative carousel w-full h-[90vh]`}>
+            <div className={`${scrollPosition === 0 ? 'lg:top-[-78px] ' : ''} relative carousel w-full h-[90vh]`}>
                 <div id="slide1" className={` carousel-item relative w-full `}>
                     <img src={img1} className="w-full " />
                     <div className="header__text-box">
@@ -33,8 +33,8 @@ const Banner = () => {
                     <img src={img2} className="w-full" />
                     <div className="header__text-box">
                         <h1 className="heading__primary">
-                            <span className="heading__primary--main">Outdoors</span>
-                            <span className="heading__primary--sub">is where life happens</span>
+                            <span className="heading__primary--main !text-sm">Outdoors</span>
+                            <span className="heading__primary--sub !text-sm">is where life happens</span>
                         </h1>
                         <a href="#" className="my-btn my-btn--white my-btn--animated">Discover our tours</a>
                     </div>

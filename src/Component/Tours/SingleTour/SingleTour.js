@@ -12,7 +12,6 @@ const SingleTour = () => {
 
   useEffect(() => {
     const data = tours.find((item) => item._id === id);
-    console.log("d==>", data);
     setSingleTour(data);
   }, [tours]);
 
