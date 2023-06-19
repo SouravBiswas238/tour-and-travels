@@ -46,7 +46,7 @@ const PopularTour = () => {
                     Start location {tour?.startLocation}
                   </li>
                   <li className="text-center w-[50%] border-b-2 border-gray-200 mx-auto py-1">
-                    sleepin facility
+                    sleeping facility
                   </li>
                 </ul>
               </div>
