@@ -21,13 +21,14 @@ import "./Component/Shared/Button.css";
 import Footer from "./Component/Shared/Footer";
 import { UserContext } from "./UserContext/userContext";
 import ShowAllTour from "./Component/Tours/AllTour/ShowAllTour";
+import AllTourRequest from "./AdminDashboard/AllTourRequest/AllTourRequest";
 
 function App() {
   const location = useLocation();
   const showFooter = !location?.pathname.includes("admin");
   const { userData } = useContext(UserContext);
   const data = JSON.parse(localStorage.getItem("userData"));
-  console.log(userData);
+  // console.log(userData);
   return (
     <div className="mx-auto container overflow-hidden">
       <Navigation />
@@ -61,6 +62,7 @@ function App() {
         >
           <Route index element={<AllTour />}></Route>
           <Route path="addTour" element={<AddTour />}></Route>
+          <Route path="all-tour-request" element={<AllTourRequest />}></Route>
           <Route path="allBlog" element={<AllBlogs />}></Route>
         </Route>
       </Routes>

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { AiFillFileText, AiOutlineHome } from 'react-icons/ai';
+import { AiFillAlipaySquare, AiFillFileText, AiOutlineHome } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
-import { FaAngleDown, FaAngleLeft, FaAngleRight, FaAngleUp } from 'react-icons/fa';
+import { FaAllergies, FaAngleDown, FaAngleLeft, FaAngleRight, FaAngleUp, FaPallet } from 'react-icons/fa';
 import { IoMdPersonAdd } from 'react-icons/io';
+import { BsCheck2, BsCheck2Square, BsTable } from 'react-icons/bs';
+import { IoAddCircleSharp, IoAddSharp, IoBusSharp } from 'react-icons/io5';
 
 
 const Sidebar = ({ dashboardSwitch }) => {
@@ -29,14 +31,20 @@ const Sidebar = ({ dashboardSwitch }) => {
         <ul className="pt-9">
           <Link to="/admin">
             <li className={dashboardLinkStyle}>
-              <AiFillFileText className="mr-2" />
+              <BsTable className="mr-2" />
               <span className={`${!dbSwitch && 'hidden py-2'}`}>All Tour</span>
             </li>
           </Link>
           <Link to="addTour">
             <li className={dashboardLinkStyle}>
-              <IoMdPersonAdd className="mr-2" />
+              <IoAddCircleSharp className="mr-2" />
               <span className={`${!dbSwitch && 'hidden py-2'}`}>Add Tour</span>
+            </li>
+          </Link>
+          <Link to="all-tour-request">
+            <li className={dashboardLinkStyle}>
+              <BsCheck2Square className="mr-2" />
+              <span className={`${!dbSwitch && 'hidden py-2'}`}>All Tour Request</span>
             </li>
           </Link>
 

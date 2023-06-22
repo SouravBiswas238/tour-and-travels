@@ -1,17 +1,19 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Button, Modal, Form, Input, Select } from 'antd';
+import { Button, Modal, Form, Input, Select, DatePicker, InputNumber, Row, Col } from 'antd';
 import { toast } from 'react-toastify';
 import { UserContext } from '../../../../UserContext/userContext';
 import { useNavigate } from "react-router-dom"
+import Api from '../../../../utility/api';
 
 
 const CreateTourButton = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const [modalVisible, setModalVisible] = useState(false);
-    const { Option } = Select;
     const { userData } = useContext(UserContext);
+    const email = userData?.email
     const navigate = useNavigate();
+    const { TextArea } = Input;
 
     const showModal = () => {
         setModalVisible(true);
@@ -22,22 +24,24 @@ const CreateTourButton = () => {
     };
 
     const onSubmit = async (data) => {
-        // try {
-        //     console.log(data);
-        //     // Make a POST request to the API to save the tour plan data
-        //     const response = await Api.post('/tourplan/create', { tourPlan: data });
-        //     console.log(response); // You can replace this with your desired action
 
-        //     if (response?.data) {
-        //         reset();
-        //         hideModal();
-        //     }
-        //     // Display success notification
-        //     toast.success(response?.message);
-        // } catch (error) {
-        //     // Display error notification
-        //     toast.error('Failed to create tour plan');
-        // }
+
+        try {
+            data = { ...data, email: email }
+            // Make a POST request to the API to save the tour plan data
+            const response = await Api.post('/tour/create/customer-tour', { email, tourPlan: data });
+            // console.log(response); // You can replace this with your desired action
+
+            if (response?.data) {
+                reset();
+                hideModal();
+            }
+            // Display success notification
+            toast.success(response?.message);
+        } catch (error) {
+            // Display error notification
+            toast.error('Failed to create tour plan');
+        }
     };
 
     return (
@@ -56,7 +60,7 @@ const CreateTourButton = () => {
                 onCancel={hideModal}
                 footer={null}
             >
-                <Form onFinish={handleSubmit(onSubmit)}>
+                <Form onFinish={onSubmit}>
                     <Form.Item
                         label="Where do you want to go?"
                         name="destination"
@@ -64,50 +68,94 @@ const CreateTourButton = () => {
                     >
                         <Input />
                     </Form.Item>
+
+
+                    <Row gutter={16}>
+                        <Col span={14}>
+                            <Form.Item
+                                label="Mobile Number"
+                                name="mobileNumber"
+                                rules={[{ required: true, message: 'Mobile number is required' }]}
+                            >
+                                <Input />
+                            </Form.Item>
+
+                        </Col>
+                        <Col span={10}>
+                            <Form.Item
+                                label="Max Member"
+                                name="maxGroupSize"
+                            >
+                                <InputNumber />
+                            </Form.Item>
+
+                        </Col>
+
+                    </Row>
+                    <Row gutter={16}>
+                        <Col span={14}>
+                            <Form.Item
+                                label="Start Location"
+                                name="startLocation"
+                            >
+                                <Input />
+                            </Form.Item>
+
+                        </Col>
+
+                        <Col span={10}>
+                            <Form.Item
+                                label="Total Budget"
+                                name="price"
+                            >
+                                <InputNumber />
+                            </Form.Item>
+                        </Col>
+                    </Row>
+                    <Row gutter={16}>
+                        <Col span={14}>
+                            <Form.Item
+                                label="Images"
+                                name="images"
+                            >
+                                <Input />
+                            </Form.Item>
+                        </Col>
+                        <Col span={10}>
+                            <Form.Item
+                                label="Duration"
+                                name="duration"
+                            >
+                                <InputNumber />
+                            </Form.Item>
+                        </Col>
+                    </Row>
                     <Form.Item
-                        label="Name"
-                        name="name"
-                        rules={[{ required: true, message: 'Name is required' }]}
+                        label="Start Dates"
+                        name="startDates"
                     >
-                        <Input />
-                    </Form.Item>
-                    <Form.Item
-                        label="Email"
-                        name="email"
-                        rules={[
-                            { required: true, message: 'Email is required' },
-                            { type: 'email', message: 'Invalid email format' }
-                        ]}
-                    >
-                        <Input />
-                    </Form.Item>
-                    <Form.Item
-                        label="Mobile Number"
-                        name="mobileNumber"
-                        rules={[{ required: true, message: 'Mobile number is required' }]}
-                    >
-                        <Input />
+                        <DatePicker.RangePicker />
                     </Form.Item>
                     <Form.Item
                         label="Additional Details"
                         name="additionalDetails"
                         rules={[{ required: true, message: 'Additional details are required' }]}
                     >
-                        <Input />
+                        <TextArea rows={4} />
                     </Form.Item>
-                    <Form.Item label="Level" name="level" rules={[{ required: true, message: 'Level is required' }]}>
-                        <Select>
-                            <Option value="beginner">Beginner</Option>
-                            <Option value="intermediate">Intermediate</Option>
-                            <Option value="advanced">Advanced</Option>
-                        </Select>
-                    </Form.Item>
-                    <Form.Item>
-                        <Button htmlType="submit">
-                            Submit
-                        </Button>
-                    </Form.Item>
+                    <Row>
+                        <Col span={24}>
+                            <Form.Item>
+                                <Button htmlType="submit">
+                                    Submit
+                                </Button>
+                            </Form.Item>
+                        </Col>
+                    </Row>
                 </Form>
+
+
+
             </Modal>
         </div>
     );
