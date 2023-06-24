@@ -41,6 +41,7 @@
 
 .card-picture {
     height: 15rem;
+    width: 100%;
     clip-path: polygon(0 0, 100% 0, 100% 84%, 0 100%);
 }
 

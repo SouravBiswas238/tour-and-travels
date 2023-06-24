@@ -25,7 +25,11 @@ const PopularTour = () => {
           <div className="card__slide shadow-md">
             <div className="absolute w-full  ">
               {/* <div className="card-picture card-pic-1"></div> */}
-              <img alt="tour IMage" src={tour?.imageCover} />
+              <img
+                className="card-picture"
+                alt="tour IMage"
+                src={tour?.imageCover}
+              />
               <h4 className="flex flex-wrap relative left-1/3 top-[-4rem] font-semibold ">
                 <span className=" text-white px-4 text-xl py-1 bg-gradient-to-r from-cyan-400 to-blue-400">
                   {tour?.title}
