@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router";
 import { UserContext } from "../../../UserContext/userContext";
 import { useScrollPosition } from "../../../hooks/useScrollPosition";
@@ -10,7 +10,11 @@ const PopularTour = () => {
   const { tours, email, isLoading, isError, userData } =
     useContext(UserContext);
 
-  console.log(tours);
+  const [showMore, setShowMore] = useState(false);
+  const firstFourTours = tours.slice(0, 4);
+  const remainingTours = tours.slice(4);
+  const visibleTours = showMore ? tours : firstFourTours;
+
   let content = null;
   if (isLoading) {
     return <p>Loading......</p>;
@@ -19,7 +23,7 @@ const PopularTour = () => {
     console.log("error data");
   }
   if (tours && !isLoading) {
-    content = tours?.map((tour) => {
+    content = visibleTours?.map((tour) => {
       return (
         <div className="card   flex w-auto pb-5 px-1  lg:mb-0">
           <div className="card__slide shadow-md">
@@ -78,6 +82,10 @@ const PopularTour = () => {
     });
   }
 
+  const handleDiscoverClick = () => {
+    setShowMore(true);
+  };
+
   return (
     <div
       className={`${
@@ -94,11 +102,13 @@ const PopularTour = () => {
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 md:gap-2 ">
           {content}
         </div>
-        <div className="text-center mx-auto underline my-2 ">
-          <a href="#" className="">
-            Discover our tours{" "}
-          </a>
-        </div>
+        {!showMore && (
+          <div className="text-center mx-auto  my-2 ">
+            <button className="bg-gray btn" onClick={handleDiscoverClick}>
+              Show more
+            </button>
+          </div>
+        )}
         <div className="border-b-2 mt-5 border-grey-200"></div>
       </section>
     </div>

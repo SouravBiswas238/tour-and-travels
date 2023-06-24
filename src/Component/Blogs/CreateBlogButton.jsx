@@ -4,6 +4,8 @@ import { Button, Modal, Form, Input } from 'antd';
 import Api from '../../utility/api';
 import { UserContext } from '../../UserContext/userContext';
 import { toast } from 'react-toastify';
+import { useNavigate } from "react-router-dom"
+
 
 
 const CreateBlogButton = () => {
@@ -11,7 +13,7 @@ const CreateBlogButton = () => {
   const [modalVisible, setModalVisible] = React.useState(false);
 
   const { userData, isLoading, isError } = useContext(UserContext);
-
+  const navigate = useNavigate();
   const showModal = () => {
     setModalVisible(true);
   };
@@ -44,7 +46,11 @@ const CreateBlogButton = () => {
   return (
     <div className='mx-auto container'>
       <div className='text-black text-end mt-5 me-10 '>
-        <Button className='' onClick={showModal}>
+        <Button className='' onClick={() => {
+          userData?.email
+            ? showModal()
+            : navigate("/login");
+        }}>
           Create Blog
         </Button>
       </div>

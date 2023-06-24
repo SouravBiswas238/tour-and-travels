@@ -13,6 +13,7 @@ const AddTour = () => {
     console.log(email)
 
     const onSubmit = async (data) => {
+        console.log(data)
         try {
             // Make a POST request to the API to save the tour data
             const response = await Api.post('/tour/create', { email: email, "tourBody": data });

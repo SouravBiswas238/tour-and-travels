@@ -8,6 +8,7 @@ export const UserProvider = ({ children }) => {
   const [deleteData, setDeleteData] = useState({});
   const [refresh, setRefresh] = useState({});
   const [tours, setTours] = useState([]);
+  const [customerTours, setCustomerTours] = useState([]);
   const [blogs, setBlogs] = useState([]);
 
   const email = userData?.email;
@@ -21,6 +22,15 @@ export const UserProvider = ({ children }) => {
     }
     fetchData();
   }, [deleteData])
+
+  // to get all customer tour data data
+  useEffect(() => {
+    async function fetchData() {
+      const response = await Api.get('/tour/get-all/customer-tour');
+      setCustomerTours(response?.data)
+    }
+    fetchData();
+  }, [])
 
   // to get all blogs data 
   useEffect(() => {
@@ -44,6 +54,7 @@ export const UserProvider = ({ children }) => {
     userData,
     setUserData,
     tours,
+    customerTours,
     blogs,
     setRefresh,
     setDeleteData,
