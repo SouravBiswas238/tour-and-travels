@@ -16,7 +16,7 @@ const AllTourPageCard = ({ tour }) => {
         <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">Price: {tour?.price}</span>
       </div>
       <div class="px-4 py-2 flex flex-wrap">
-        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">Start Date: {tour?.startDates}</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">Start Date: {tour?.startDates[0].split("T")[0]}</span>
       </div>
       <div class="px-4 py-2 flex flex-wrap">
         <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">Start Location:{tour?.startLocation}</span>
