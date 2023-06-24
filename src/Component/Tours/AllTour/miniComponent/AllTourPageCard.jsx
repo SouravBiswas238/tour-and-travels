@@ -6,12 +6,7 @@ const AllTourPageCard = ({ tour }) => {
   const { userData } = useContext(UserContext);
   const navigate = useNavigate()
   return (
-    <div onClick={() => {
-      userData?.email
-        ? navigate(`/single/${tour?._id}`)
-        : navigate("/login");
-    }}
-      class="w-full p-1 rounded overflow-hidden shadow-lg bg-white" >
+    <div class="w-full p-1 rounded overflow-hidden shadow-lg bg-white" >
       <img class="w-full h-52" src={tour?.imageCover} alt="Saintmartin" />
       <div class="px-4 py-4">
         <div class="font-bold text-xl mb-2 uppercase">{tour?.title}</div>
@@ -30,7 +25,13 @@ const AllTourPageCard = ({ tour }) => {
       <div class="px-4 py-2 flex flex-wrap">
         <p className='px-2'>{tour?.description && (tour.description.length > 40 ? tour.description.slice(0, 43) + '...' : tour.description)}</p>
       </div>
-
+      <div className="text-center mx-auto  my-2 ">
+        <button className="bg-gray btn" onClick={() => { userData?.email 
+          ? navigate(`/single/${tour?._id}`)
+          : navigate("/login");}}>
+          Book Now
+        </button>
+      </div>
     </div>
 
   );
