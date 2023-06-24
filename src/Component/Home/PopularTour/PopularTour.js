@@ -26,8 +26,8 @@ const PopularTour = () => {
             <div className="absolute w-full  ">
               {/* <div className="card-picture card-pic-1"></div> */}
               <img
-                className="card-picture"
                 alt="tour IMage"
+                className="h-60 w-full"
                 src={tour?.imageCover}
               />
               <h4 className="flex flex-wrap relative left-1/3 top-[-4rem] font-semibold ">
