@@ -36,7 +36,12 @@ const AllBlogsTable = ({ data, onDelete, handleApprove }) => {
             cell: (row) => (
                 <div>
                     {
-                        row.status === "published" ? <p>Published</p> :
+                        row.status === "published" ? <button
+                        className="text-red-500 hover:text-red-700"
+                        onClick={() => onDelete(row?._id)}
+                         >
+                        <BsTrash className='text-[15px]' />
+                        </button> :
                             <div>
                                 <button
                                     className="text-blue-500 hover:text-blue-700 mr-2"
