@@ -10,9 +10,6 @@ const AllTour = () => {
     // fetch data from backend
     const { tours, email, setDeleteData } = useContext(UserContext);
 
-    // console.log(tours)
-
-
     const handleDelete = async (tourId) => {
         const data = { tourId: tourId, email: email }
         const response = await Api.delete('/tour/delete', { data });

@@ -90,7 +90,7 @@ const CustomerReview = () => {
                                             <p className="relative px-6 py-1 text-lg italic text-center ">
 
                                                 {
-                                                    a?.reviewText.length <= 166 ? a?.reviewText : a?.reviewText.slice(0, 166) + '......'
+                                                    // a?.reviewText.length <= 166 ? a?.reviewText : a?.reviewText?.slice(0, 166) + '......'
                                                 }
 
                                             </p>

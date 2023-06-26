@@ -23,12 +23,14 @@ const AllTourPageCard = ({ tour }) => {
         <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 ml-2">Max Group Size: {tour?.maxGroupSize}</span>
       </div>
       <div class="px-4 py-2 flex flex-wrap">
-        <p className='px-2'>{tour?.description && (tour.description.length > 40 ? tour.description.slice(0, 43) + '...' : tour.description)}</p>
+        <p className='px-2'>{tour?.description && (tour.description.length > 40 ? tour?.description?.slice(0, 43) + '...' : tour.description)}</p>
       </div>
       <div className="text-center mx-auto  my-2 ">
-        <button className="bg-gray btn" onClick={() => { userData?.email 
+        <button className="bg-gray btn" onClick={() => {
+          userData?.email
           ? navigate(`/single/${tour?._id}`)
-          : navigate("/login");}}>
+          : navigate("/login");
+        }}>
           Book Now
         </button>
       </div>

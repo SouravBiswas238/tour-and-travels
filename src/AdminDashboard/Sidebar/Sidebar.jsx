@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { AiFillAlipaySquare, AiFillFileText, AiOutlineUser } from 'react-icons/ai';
+import { AiFillFileText, AiOutlineUser } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
-import { FaAllergies, FaAngleDown, FaAngleLeft, FaAngleRight, FaAngleUp, FaPallet } from 'react-icons/fa';
-import { IoMdPersonAdd } from 'react-icons/io';
-import { BsCheck2, BsCheck2Square, BsTable } from 'react-icons/bs';
-import { IoAddCircleSharp, IoAddSharp, IoBusSharp } from 'react-icons/io5';
+import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
+import { BsCheck2Square, BsTable } from 'react-icons/bs';
+import { IoAddCircleSharp } from 'react-icons/io5';
 
 
 const Sidebar = ({ dashboardSwitch }) => {
@@ -52,6 +51,12 @@ const Sidebar = ({ dashboardSwitch }) => {
             <li className={dashboardLinkStyle}>
               <AiFillFileText className="mr-2" />
               <span className={`${!dbSwitch && 'hidden'}`}> All Blogs</span>
+            </li>
+          </Link>
+          <Link to="booking-tour">
+            <li className={dashboardLinkStyle}>
+              <AiFillFileText className="mr-2" />
+              <span className={`${!dbSwitch && 'hidden'}`}> All Booking</span>
             </li>
           </Link>
 

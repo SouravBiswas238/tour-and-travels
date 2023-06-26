@@ -94,9 +94,8 @@ const PopularTour = () => {
   }
   return (
     <div
-      className={`${
-        scrollPosition === 0 ? "relative top-[-80px]" : ""
-      } overflow-hidden`}
+      className={`${scrollPosition === 0 ? "relative top-[-80px]" : ""
+        } overflow-hidden`}
     >
       <section className="section__tours">
         <div className="group my-8">

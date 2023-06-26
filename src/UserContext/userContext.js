@@ -11,6 +11,8 @@ export const UserProvider = ({ children }) => {
   const [tours, setTours] = useState([]);
   const [customerTours, setCustomerTours] = useState([]);
   const [blogs, setBlogs] = useState([]);
+  const [allBooking, setAllBooking] = useState([])
+
 
   const email = userData?.email;
 
@@ -50,6 +52,15 @@ export const UserProvider = ({ children }) => {
     fetchData();
   }, [refresh]);
 
+  // to get all tour booking data
+  useEffect(() => {
+    async function fetchData() {
+      const response = await Api.get("/tour-booking/booking");
+      setAllBooking(response?.data);
+    }
+    fetchData();
+  }, [refresh]);
+
   // set user local storage
   useEffect(() => {
     const data = localStorage.getItem("userData");
@@ -69,6 +80,7 @@ export const UserProvider = ({ children }) => {
     setRefresh,
     setDeleteData,
     email,
+    allBooking,
   };
 
   return (

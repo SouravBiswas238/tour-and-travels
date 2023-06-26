@@ -3,6 +3,7 @@ import DataTable from 'react-data-table-component';
 import { BsPencilSquare, BsTrash } from 'react-icons/bs';
 
 const TourTable = ({ data, onDelete }) => {
+
     const columns = [
         {
             name: 'Title',
@@ -11,8 +12,15 @@ const TourTable = ({ data, onDelete }) => {
         },
         {
             name: 'Description',
-            selector: 'description',
-            sortable: true,
+            cell: (row) => (
+                <div>
+                    {
+                        <p >{row.description?.split(' ')?.slice(0, 5)?.join(' ')}...</p>
+                    }
+                </div>
+            ),
+
+
         },
         {
             name: 'Duration',
