@@ -22,6 +22,7 @@ import Footer from "./Component/Shared/Footer";
 import { UserContext } from "./UserContext/userContext";
 import ShowAllTour from "./Component/Tours/AllTour/ShowAllTour";
 import AllTourRequest from "./AdminDashboard/AllTourRequest/AllTourRequest";
+import AllUsers from "./AdminDashboard/AllUsers/AllUsers";
 
 function App() {
   const location = useLocation();
@@ -64,6 +65,7 @@ function App() {
           <Route path="addTour" element={<AddTour />}></Route>
           <Route path="all-tour-request" element={<AllTourRequest />}></Route>
           <Route path="allBlog" element={<AllBlogs />}></Route>
+          <Route path="allUsers" element={<AllUsers />}></Route>
         </Route>
       </Routes>
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AiFillAlipaySquare, AiFillFileText, AiOutlineHome } from 'react-icons/ai';
+import { AiFillAlipaySquare, AiFillFileText, AiOutlineUser } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { FaAllergies, FaAngleDown, FaAngleLeft, FaAngleRight, FaAngleUp, FaPallet } from 'react-icons/fa';
 import { IoMdPersonAdd } from 'react-icons/io';
@@ -55,7 +55,14 @@ const Sidebar = ({ dashboardSwitch }) => {
             </li>
           </Link>
 
-          <li onClick={() => setArrowSwitch(!arrowSwitch)} className={dashboardLinkStyle}>
+          <Link to="allUsers">
+            <li className={dashboardLinkStyle}>
+              <AiOutlineUser className="mr-2" />
+              <span className={`${!dbSwitch && 'hidden'}`}> All Users</span>
+            </li>
+          </Link>
+
+          {/* <li onClick={() => setArrowSwitch(!arrowSwitch)} className={dashboardLinkStyle}>
             <AiFillFileText className="mr-2" />
             <span className={`${!dbSwitch && 'hidden'} mx-2`}>Another</span>
             <span className={`${!dbSwitch && 'hidden'}`}>
@@ -76,7 +83,7 @@ const Sidebar = ({ dashboardSwitch }) => {
 
 
 
-          </ul>
+          </ul> */}
 
 
 

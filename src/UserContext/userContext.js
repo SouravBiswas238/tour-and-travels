@@ -4,6 +4,7 @@ import Api from "../utility/api";
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
+  const [users, setUsers] = useState({});
   const [userData, setUserData] = useState({});
   const [deleteData, setDeleteData] = useState({});
   const [refresh, setRefresh] = useState({});
@@ -13,33 +14,41 @@ export const UserProvider = ({ children }) => {
 
   const email = userData?.email;
 
+  // to get all user data data
+  useEffect(() => {
+    async function fetchData() {
+      const response = await Api.get("/user");
+      setUsers(response?.data);
+    }
+    fetchData();
+  }, []);
 
   // to get all tour data data
   useEffect(() => {
     async function fetchData() {
-      const response = await Api.get('/tour/all');
-      setTours(response?.data)
+      const response = await Api.get("/tour/all");
+      setTours(response?.data);
     }
     fetchData();
-  }, [deleteData])
+  }, [deleteData]);
 
   // to get all customer tour data data
   useEffect(() => {
     async function fetchData() {
-      const response = await Api.get('/tour/get-all/customer-tour');
-      setCustomerTours(response?.data)
+      const response = await Api.get("/tour/get-all/customer-tour");
+      setCustomerTours(response?.data);
     }
     fetchData();
-  }, [])
+  }, []);
 
-  // to get all blogs data 
+  // to get all blogs data
   useEffect(() => {
     async function fetchData() {
-      const response = await Api.get('/blog/all');
-      setBlogs(response?.data)
+      const response = await Api.get("/blog/all");
+      setBlogs(response?.data);
     }
     fetchData();
-  }, [refresh])
+  }, [refresh]);
 
   // set user local storage
   useEffect(() => {
@@ -51,6 +60,7 @@ export const UserProvider = ({ children }) => {
 
   //this state stored user data  //==> Don't move this one !
   const contextData = {
+    users,
     userData,
     setUserData,
     tours,
@@ -58,14 +68,10 @@ export const UserProvider = ({ children }) => {
     blogs,
     setRefresh,
     setDeleteData,
-    email
-
+    email,
   };
 
   return (
-    <UserContext.Provider
-      value={contextData} >
-      {children}
-    </UserContext.Provider>
+    <UserContext.Provider value={contextData}>{children}</UserContext.Provider>
   );
 };

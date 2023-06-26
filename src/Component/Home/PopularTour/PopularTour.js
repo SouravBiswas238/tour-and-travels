@@ -7,9 +7,8 @@ import "./PopularTour.css";
 const PopularTour = () => {
   const scrollPosition = useScrollPosition();
   const navigate = useNavigate();
-  const { tours, email, isLoading, isError, userData } = useContext(
-    UserContext
-  );
+  const { tours, email, isLoading, isError, userData } =
+    useContext(UserContext);
 
   const [showMore, setShowMore] = useState(false);
   const firstFourTours = tours.slice(0, 4);
@@ -31,7 +30,11 @@ const PopularTour = () => {
           <div className="card__slide shadow-md">
             <div className="absolute w-full  ">
               {/* <div className="card-picture card-pic-1"></div> */}
-              <img alt="tour IMage" className="h-60 w-full" src={tour?.imageCover} />
+              <img
+                alt="tour IMage"
+                className="h-60 w-full"
+                src={tour?.imageCover}
+              />
               <h4 className="flex flex-wrap relative left-1/3 top-[-4rem] font-semibold ">
                 <span className=" text-white px-4 text-xl py-1 bg-gradient-to-r from-cyan-400 to-blue-400">
                   {tour?.title}
@@ -52,7 +55,7 @@ const PopularTour = () => {
                     Start location {tour?.startLocation}
                   </li>
                   <li className="text-center w-[50%] border-b-2 border-gray-200 mx-auto py-1">
-                    sleepin facility
+                    sleeping facility
                   </li>
                 </ul>
               </div>
@@ -91,7 +94,9 @@ const PopularTour = () => {
   }
   return (
     <div
-      className={`${scrollPosition === 0 ? "relative top-[-80px]" : ""} overflow-hidden`}
+      className={`${
+        scrollPosition === 0 ? "relative top-[-80px]" : ""
+      } overflow-hidden`}
     >
       <section className="section__tours">
         <div className="group my-8">
