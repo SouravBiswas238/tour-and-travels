@@ -16,6 +16,7 @@ const PopularTour = () => {
   const remainingTours = tours.slice(4);
   const visibleTours = showMore ? tours : firstFourTours;
 
+
   let content = null;
   if (isLoading) {
     return <p>Loading......</p>;
@@ -61,16 +62,12 @@ const PopularTour = () => {
               <div className="card-backpart">
                 <p className="prize-text">Only</p>
                 <p className="prize-value">$279</p>
-                <a
+                <button
                   className="btn btn--white"
-                  onClick={() => {
-                    userData?.email
-                      ? navigate(`/single/${tour?._id}`)
-                      : navigate("/login");
-                  }}
+                  onClick={() => handelTour(tour?._id)}
                 >
                   Buy Now
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -82,7 +79,16 @@ const PopularTour = () => {
   const handleDiscoverClick = () => {
     setShowMore(true);
   };
+  const handelTour = (id) => {
+    if (userData?.email) {
+      navigate(`/single/${id}`)
+      window.scroll(0, 0)
+    }
+    else {
+      navigate("/login");
+    }
 
+  }
   return (
     <div
       className={`${scrollPosition === 0 ? "relative top-[-80px]" : ""} overflow-hidden`}

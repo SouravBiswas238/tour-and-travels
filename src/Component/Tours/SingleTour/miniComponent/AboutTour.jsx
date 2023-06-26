@@ -4,7 +4,7 @@ import { RxCross2 } from "react-icons/rx";
 import BookingTour from "./BookingTour";
 import RatingForm from "./RatingForm";
 const AboutTour = ({ tour }) => {
-  console.log("t..", tour)
+  
   return (
     <div>
       <div
@@ -106,7 +106,10 @@ const AboutTour = ({ tour }) => {
               To conferm the tour booking please see the user profile for your tour status.
             </p>
             {/* form tour booking */}
-            <BookingTour />
+            <BookingTour 
+            id={tour?._id}
+            title={tour?.title}
+            />
           </div>
 
           {/* rating */}
