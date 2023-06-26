@@ -17,79 +17,21 @@ const AboutTour = ({ tour }) => {
           className="flex flex-col max-w-3xl mx-auto overflow-hidden rounded
                 w-full  xl:col-span-3 italic"
         >
-          <div className="text-start  leading-8 ">
-            <p className=" text-2xl font-semibold sm:text-xl text-primary">
+          <div className="flex">
+            {/* about tour */}
+            <div className="text-start  leading-8 ">
+            <p className="inline-block text-2xl font-semibold sm:text-xl text-primary">
               Explore Tours
             </p>
-            <p>
+            <p className="text-justify mr-3">
               {tour?.description}
             </p>
           </div>
-          <div className="flex">
-            {/* about tour */}
-            <div className="text-start  leading-7 pr-2">
-              <p className="inline-block text-2xl font-semibold sm:text-xl text-primary pt-3">
-                Advance Facilities
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua..
-              </p>
-              <p className="inline-block text-2xl font-semibold sm:text-xl text-primary pt-3">
-                Challenge
-              </p>
-              <p className="pt-3">
-                {" "}
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium laudantium, totam rem aperiam, eaque ipsa quae ab
-                illo inventore quasi architecto beatae vitae dicta..
-              </p>
-            </div>
-
             <img
               src={tour?.imageCover}
               alt=""
-              className="opacity-100 w-1/2 float-right text-end h-60 sm:h-96"
+              className="opacity-100 w-1/2 p-3 float-right text-end h-60 sm:h-96"
             />
-          </div>
-          <div>
-            <h1 className="text-start text-xl font-semibold text-primary">
-              Included/Exclude
-            </h1>
-            <div className="grid grid-cols-2 py-10">
-              <div className="col-1">
-                <ul className="flex-1 mb-6  btext-gray-400">
-                  <li className="flex mb-2 space-x-2 items-center">
-                    <FcApproval />
-                    <span>Pick and Drop Services</span>
-                  </li>
-                  <li className="flex mb-2 space-x-2 items-center">
-                    <FcApproval />
-                    <span>Pick and Drop Services</span>
-                  </li>
-                  <li className="flex mb-2 space-x-2 items-center">
-                    <FcApproval />
-                    <span>Pick and Drop Services</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="col-1">
-                <ul className="flex-1 mb-6  btext-gray-400">
-                  <li className="flex mb-2 space-x-2 items-center">
-                    <RxCross2 />
-                    <span>Additional Services</span>
-                  </li>
-                  <li className="flex mb-2 space-x-2 items-center">
-                    <RxCross2 />
-                    <span>Additional Services</span>
-                  </li>
-                  <li className="flex mb-2 space-x-2 items-center">
-                    <RxCross2 />
-                    <span>Additional Services</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
           </div>
         </div>
         {/* tour booking
