@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import axios from 'axios';
 import { toast } from 'react-toastify';
 import Api from '../../utility/api';
 import { UserContext } from '../../UserContext/userContext';

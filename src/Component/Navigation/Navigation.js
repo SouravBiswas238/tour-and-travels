@@ -3,6 +3,7 @@ import { AiFillHome } from "react-icons/ai";
 import { BsPlusLg } from "react-icons/bs";
 import { GiHamburgerMenu } from "react-icons/gi";
 import {
+  MdDashboard,
   MdDeveloperMode,
   MdOutlineConnectWithoutContact,
   MdTour,
@@ -98,7 +99,7 @@ const Navigation = () => {
                     Contact
                   </NavLink>
                 </li>
-                {userData?.email && userData?.role === "admin" && (
+                {userData?.email && userData?.role === "admin" ? (
                   <li onClick={closedNavbarAll} className="mr-5 mb-4 md:mb-0">
                     <NavLink
                       to="/admin"
@@ -110,7 +111,21 @@ const Navigation = () => {
                       Admin Panel
                     </NavLink>
                   </li>
+                ) : (
+                  userData?.email ? (
+                    <li onClick={closedNavbarAll} className="mr-5 mb-4 md:mb-0">
+                      <NavLink
+                        to="/user-dashboard"
+                        className={({ isActive }) =>
+                          isActive ? active : deActive
+                        }
+                      >
+                        <MdDashboard className="md:hidden mr-2" />
+                        Dashboard
+                      </NavLink>
+                    </li>) : ''
                 )}
+
                 {userData?.email && (
                   <li
                     onClick={() => {
@@ -156,7 +171,7 @@ const Navigation = () => {
           </div>
         </div>
       </div>
-    </nav>
+    </nav >
   );
 };
 

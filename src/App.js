@@ -23,8 +23,11 @@ import { UserContext } from "./UserContext/userContext";
 import ShowAllTour from "./Component/Tours/AllTour/ShowAllTour";
 import AllTourRequest from "./AdminDashboard/AllTourRequest/AllTourRequest";
 import AllUsers from "./AdminDashboard/AllUsers/AllUsers";
-import BookingTour from "./Component/Tours/SingleTour/miniComponent/BookingTour";
 import AllBookingTour from "./AdminDashboard/AllBookingTour/AllBookingTour";
+import UserDashboard from "./Component/Dashboard/UserDashboard";
+import Userprofile from "./Component/Dashboard/UserProfile/UserProfile";
+import UserBlogs from "./Component/Dashboard/UserBlogs/UserBlogs";
+import LoginUserBooking from "./Component/Dashboard/LoginUserBooking/LoginUserBooking";
 
 function App() {
   const location = useLocation();
@@ -54,7 +57,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signUp" element={<RegisterForm />} />
         <Route path="/contact" element={<Contact />} />
-
+        {/* admin dashboard route here */}
         <Route
           path="/admin"
           element={
@@ -69,6 +72,18 @@ function App() {
           <Route path="allBlog" element={<AllBlogs />}></Route>
           <Route path="booking-tour" element={<AllBookingTour />}></Route>
           <Route path="allUsers" element={<AllUsers />}></Route>
+        </Route>
+        {/* user dashboard route here */}
+        <Route
+          path="/user-dashboard"
+          element={
+            <UserDashboard />
+          }
+        >
+          <Route index element={<Userprofile />}></Route>
+          <Route path="tour-booking" element={<LoginUserBooking />}></Route>
+          <Route path="user-blogs" element={<UserBlogs />}></Route>
+
         </Route>
       </Routes>
 
