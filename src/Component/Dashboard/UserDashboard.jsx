@@ -1,6 +1,6 @@
 import React from 'react';
 import { MdArticle, MdDashboard, MdDeveloperMode } from 'react-icons/md';
-import {  NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
 
 const UserDashboard = () => {
@@ -20,7 +20,7 @@ const UserDashboard = () => {
     return (
         <div className="flex flex-col md:flex-row h-screen pt-[5rem]">
             <div
-                className={` ${isOpen ? " md:w-64" : "md:w-24"} w-full  bg-gradient-to-r from-rose-100 to-blue-100 transition-all duration-300`}
+                className={` ${isOpen ? "md:w-64" : "md:w-24"} w-full  bg-gradient-to-r from-rose-100 to-blue-100 transition-all duration-300`}
                 onMouseEnter={toggleDrawer}
                 onMouseLeave={toggleDrawer}
             >

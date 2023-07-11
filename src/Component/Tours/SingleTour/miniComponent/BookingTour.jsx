@@ -4,19 +4,18 @@ import { toast } from 'react-toastify';
 import { UserContext } from '../../../../UserContext/userContext';
 import Api from '../../../../utility/api';
 
-const BookingTour = ({ id, title }) => {
+const BookingTour = ({ id, title, price }) => {
     const { register, handleSubmit, formState: { errors, }, reset } = useForm();
 
     const { userData } = useContext(UserContext);
 
     const onSubmit = async (data) => {
         // Handle form submission
-        const data1 = { ...data, tour_id: id, tour_title: title };
-        console.log(data1);
+        const data1 = { ...data, tour_id: id, tour_title: title, price: price };
 
 
         const response = await Api.post('/tour-booking/booking', { payload: data1 });
-        console.log(response); // You can replace this with your desired action
+        // console.log(response); 
         if (response?.status) {
             reset();
             toast.success(response?.message)

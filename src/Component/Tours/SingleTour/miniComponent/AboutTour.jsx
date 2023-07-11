@@ -4,7 +4,7 @@ import { RxCross2 } from "react-icons/rx";
 import BookingTour from "./BookingTour";
 import RatingForm from "./RatingForm";
 const AboutTour = ({ tour }) => {
-  
+
   return (
     <div>
       <div
@@ -20,13 +20,13 @@ const AboutTour = ({ tour }) => {
           <div className="flex">
             {/* about tour */}
             <div className="text-start  leading-8 ">
-            <p className="inline-block text-2xl font-semibold sm:text-xl text-primary">
-              Explore Tours
-            </p>
-            <p className="text-justify mr-3">
-              {tour?.description}
-            </p>
-          </div>
+              <p className="inline-block text-2xl font-semibold sm:text-xl text-primary">
+                Explore Tours
+              </p>
+              <p className="text-justify mr-3">
+                {tour?.description}
+              </p>
+            </div>
             <img
               src={tour?.imageCover}
               alt=""
@@ -48,9 +48,10 @@ const AboutTour = ({ tour }) => {
               To conferm the tour booking please see the user profile for your tour status.
             </p>
             {/* form tour booking */}
-            <BookingTour 
-            id={tour?._id}
-            title={tour?.title}
+            <BookingTour
+              id={tour?._id}
+              title={tour?.title}
+              price={tour?.price}
             />
           </div>
 

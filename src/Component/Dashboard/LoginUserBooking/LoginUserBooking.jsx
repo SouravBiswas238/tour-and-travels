@@ -22,13 +22,7 @@ const LoginUserBooking = () => {
     }, []);
 
 
-    const handleStatus = async (tourId) => {
-        const data = { status: "confirm" }
-
-        console.log(tourId)
-
-
-    };
+ 
     const handelCancelTour = async (tourId) => {
         const data = { status: "pending" }
         console.log(tourId)
@@ -39,7 +33,7 @@ const LoginUserBooking = () => {
     return (
         <div>
             <h2 className='text-center text-2xl mb-2'>All Booking</h2>
-            <UserBookingTourTable data={myBooking} handleStatus={handleStatus} handelCancelTour={handelCancelTour} />
+            <UserBookingTourTable data={myBooking}  handelCancelTour={handelCancelTour} />
         </div>
     );
 };

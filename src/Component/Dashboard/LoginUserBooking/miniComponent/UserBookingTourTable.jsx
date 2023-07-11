@@ -7,7 +7,13 @@ import { TiTick } from 'react-icons/ti';
 import CreateTourButton from '../../../Tours/AllTour/miniComponent/CreateTourButton';
 import PayMentModal from './PayMentModal';
 
-const UserBookingTourTable = ({ data, handleStatus, handelCancelTour }) => {
+const UserBookingTourTable = ({ data, handelCancelTour }) => {
+    const [singleData, setSingleData] = useState([])
+
+    const handelABooking = (id) => {
+        const singleData = data?.filter(d => d._id === id)
+        setSingleData(singleData)
+    }
 
     const columns = [
         {
@@ -38,8 +44,6 @@ const UserBookingTourTable = ({ data, handleStatus, handelCancelTour }) => {
                     {row.status}
                 </button >
             )
-
-
         },
         {
             name: 'Actions',
@@ -47,16 +51,14 @@ const UserBookingTourTable = ({ data, handleStatus, handelCancelTour }) => {
                 <div>
                     {
                         row.status === "pending" ? <button
-                           
-                            onClick={() => handleStatus(row?._id)}
+
+                            onClick={() => handelABooking(row?._id)}
                         >
-                            <PayMentModal />
+                            <PayMentModal bookingInfo={singleData} />
                         </button> :
                             <div>
-
                                 <button className='flex text-green-500'>
                                     <span className=''>Paid</span> <TiTick className='text-xl' />
-
                                 </button>
                             </div>
                     }
