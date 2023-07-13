@@ -10,7 +10,6 @@ const AllBlogs = () => {
 
     const handleDelete = async (blogId) => {
         // const data = { tourId: tourId, email: email }
-
         const response = await Api.delete(`/blog/delete/${blogId}`);
         setRefresh(response?.data)
         response?.message && toast.success(response?.message);
@@ -18,13 +17,10 @@ const AllBlogs = () => {
 
     };
     const handleApprove = async (blogId) => {
-
         const blog = { status: 'published' }
         const response = await Api.update(`/blog/update/${blogId}`, { blog });
         setRefresh(response?.data)
         response?.message && toast.success(response?.message);
-
-
     };
     return (
         <div>

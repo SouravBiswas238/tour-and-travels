@@ -8,12 +8,13 @@ import { useNavigate } from "react-router-dom"
 
 
 
-const CreateBlogButton = () => {
+const CreateBlogButton = ({ userDashboard }) => {
   const { register, formState: { errors }, reset } = useForm();
   const [modalVisible, setModalVisible] = React.useState(false);
 
   const { userData, isLoading, isError } = useContext(UserContext);
   const navigate = useNavigate();
+
   const showModal = () => {
     setModalVisible(true);
   };

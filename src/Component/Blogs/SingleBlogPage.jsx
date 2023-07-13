@@ -11,7 +11,6 @@ const SingleBlogPage = () => {
     const blog = blogs.find((blog) => blog._id === id);
     setBlog(blog);
   }, [id, blogs]);
-  console.log("b==>", blog, id, blogs);
   return (
     <div className="pt-10  mt-10">
       <div class="bg-gray-800 text-white py-4">
