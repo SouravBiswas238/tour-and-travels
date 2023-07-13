@@ -22,7 +22,7 @@ const SingleTour = () => {
       <div className=" pt-[3rem]">
         <SingleTourBanner tour={singleTour} />
         <AboutTour tour={singleTour} />
-        <Slider></Slider>
+        {/* <Slider></Slider> */}
       </div>
     </div>
   );
