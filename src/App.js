@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -28,13 +28,18 @@ import UserDashboard from "./Component/Dashboard/UserDashboard";
 import Userprofile from "./Component/Dashboard/UserProfile/UserProfile";
 import UserBlogs from "./Component/Dashboard/UserBlogs/UserBlogs";
 import LoginUserBooking from "./Component/Dashboard/LoginUserBooking/LoginUserBooking";
+import Loading from "./Component/Shared/Loading/Loading";
 
 function App() {
   const location = useLocation();
   const showFooter = !location?.pathname.includes("admin");
-  const { userData } = useContext(UserContext);
+  const { isLoading, isError } = useContext(UserContext);
   const data = JSON.parse(localStorage.getItem("userData"));
-  // console.log(userData);
+
+  if (isLoading) {
+    return <Loading />
+  }
+
   return (
     <div className="mx-auto container overflow-hidden">
       <Navigation />

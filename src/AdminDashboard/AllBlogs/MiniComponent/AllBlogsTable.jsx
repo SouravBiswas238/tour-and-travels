@@ -2,10 +2,10 @@ import React from 'react';
 import DataTable from 'react-data-table-component';
 import { BsTrash } from 'react-icons/bs';
 import { IoCloseOutline } from 'react-icons/io5';
-import { TiTick } from 'react-icons/ti';
+import { TiEdit, TiTick } from 'react-icons/ti';
 
-const AllBlogsTable = ({ data, onDelete, handleApprove }) => {
-    console.log(data)
+const AllBlogsTable = ({ data, onDelete, handleApprove, handleEdit, userDashboard }) => {
+
     const columns = [
         {
             name: 'Title',
@@ -37,19 +37,26 @@ const AllBlogsTable = ({ data, onDelete, handleApprove }) => {
                 <div>
                     {
                         row.status === "published" ? <button
-                        className="text-red-500 hover:text-red-700"
-                        onClick={() => onDelete(row?._id)}
-                         >
-                        <BsTrash className='text-[15px]' />
+                            className="text-red-500 hover:text-red-700"
+                            onClick={() => onDelete(row?._id)}
+                        >
+                            <BsTrash className='text-[15px]' />
                         </button> :
                             <div>
-                                <button
-                                    className="text-blue-500 hover:text-blue-700 mr-2"
-                                    // eslint-disable-next-line no-undef
-                                    onClick={() => handleApprove(row?._id)}
-                                >
-                                    <TiTick className='text-xl' />
-                                </button>
+                                {
+                                    userDashboard ? <button
+                                        className="text-blue-500 hover:text-blue-700 mr-2"
+                                        onClick={() => handleEdit(row?._id)}
+                                    >
+                                        <TiEdit className='text-xl' />
+                                    </button> : <button
+                                        className="text-blue-500 hover:text-blue-700 mr-2"
+                                        onClick={() => handleApprove(row?._id)}
+                                    >
+                                        <TiTick className='text-xl' />
+                                    </button>
+                                }
+
 
                                 <button
                                     className="text-red-500 hover:text-red-700"
@@ -59,15 +66,12 @@ const AllBlogsTable = ({ data, onDelete, handleApprove }) => {
                                 </button>
                             </div>
                     }
-                </div>
+                </div >
             ),
         },
     ];
 
-    const handleEdit = (id) => {
-        // Handle the edit action for the given ID
-        console.log(`Edit tour with ID ${id}`);
-    };
+
 
 
     return (
