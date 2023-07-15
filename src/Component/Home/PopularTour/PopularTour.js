@@ -11,8 +11,8 @@ const PopularTour = () => {
     useContext(UserContext);
 
   const [showMore, setShowMore] = useState(false);
-  const firstFourTours = tours.slice(0, 4);
-  const remainingTours = tours.slice(4);
+  const firstFourTours = tours?.slice(0, 4);
+  const remainingTours = tours?.slice(4);
   const visibleTours = showMore ? tours : firstFourTours;
 
 

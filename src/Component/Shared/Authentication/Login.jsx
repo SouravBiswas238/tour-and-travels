@@ -19,6 +19,7 @@ const Login = () => {
     setLoading(true);
     const res = await Api.post("/user/login", data);
     if (res.status && res.data) {
+      console.log(res.data)
       setUserData(res.data[0]);
       toast.success("Log in Success");
       localStorage.setItem("userData", JSON.stringify(res.data[0]));
