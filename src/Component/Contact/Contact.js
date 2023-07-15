@@ -15,16 +15,16 @@ const Contact = () => {
 
     // Perform form validation here
     if (!name || !email || !message) {
-      alert('Please fill in all fields.');
+      toast.error('Please fill in all fields.');
       return;
     }
+    console.log(email, name, message)
 
     // Send the email using EmailJS
     emailjs
-      .sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target, 'YOUR_USER_ID')
+      .sendForm('service_6wsbpzx', 'template_nab4avm', e.target, 'oaAb6sy-iSJP6fBqs')
       .then((result) => {
-        console.log(result.text);
-        toast.success('Message sent successfully!');
+        result.text && toast.success('Message sent successfully!');
         setName('');
         setEmail('');
         setMessage('');
@@ -586,8 +586,7 @@ const Contact = () => {
           </div>
           <div class="mt-8">
             <span class="uppercase text-sm text-gray-600 font-bold">Email</span>
-            <input
-              type="text" />
+
             <input
               type="email"
               placeholder="Email"
