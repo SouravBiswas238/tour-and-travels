@@ -29,8 +29,8 @@ const SingleBlogPage = () => {
               {blog?.author && blog?.author[0]?.lastName}
             </span>
           </p>
-          <img src={img3} alt="" className="w-full mb-6 rounded-lg h-[400px]" />
-          <p class="text-gray-700 leading-7">{blog?.content}</p>
+          <img src={blog?.coverImage} alt="" className="w-full mb-6 rounded-lg h-[400px]" />
+          <p class="text-gray-700 leading-7 text-justify">{blog?.content}</p>
         </div>
       </div>
     </div>
