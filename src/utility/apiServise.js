@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const baseURL = "http://localhost:5000/api";
+// const baseURL = "https://tour-server-w1p6.onrender.com/api";
 
 const makeUrl = (endPoint) => {
   return `${baseURL}${endPoint}`;
