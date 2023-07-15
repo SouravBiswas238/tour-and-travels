@@ -30,32 +30,7 @@ const SingleBlogPage = () => {
             </span>
           </p>
           <img src={img3} alt="" className="w-full mb-6 rounded-lg h-[400px]" />
-          <p class="text-gray-700 leading-7">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id
-            feugiat orci, eget bibendum felis. Nulla eget finibus velit. Donec
-            condimentum nisl vel dui tempor, nec dapibus ipsum auctor. Ut
-            sollicitudin magna non ante luctus, vel eleifend dui aliquam. Duis
-            sodales orci a tortor interdum ultrices. Sed suscipit tristique
-            feugiat. Vestibulum volutpat libero et justo ultrices, non cursus
-            tortor gravida. Mauris nec est vel nisi rutrum hendrerit. Cras ac
-            tristique quam, vel feugiat lorem. Quisque at turpis vel ligula
-            rutrum feugiat. Praesent nec nunc ut tellus accumsan hendrerit.
-            Donec ut finibus urna. Duis eget purus auctor, tincidunt purus at,
-            malesuada arcu. Duis aliquam libero vitae metus sagittis vestibulum.
-            Fusce elementum elit nisl, in ultricies lectus luctus ac. Fusce vel
-            lacus at nibh laoreet cursus a quis odio.
-          </p>
-          <p class="text-gray-700 leading-7">
-            Sed sit amet vestibulum velit. Pellentesque habitant morbi tristique
-            senectus et netus et malesuada fames ac turpis egestas. Fusce
-            vulputate feugiat lacinia. In fermentum pellentesque sapien non
-            vulputate. Aenean nec diam quis risus malesuada maximus. Vestibulum
-            consectetur varius felis, id ultrices nulla efficitur non. Nullam
-            facilisis arcu nec congue interdum. Vestibulum vel interdum est, a
-            gravida tortor. Suspendisse vitae ullamcorper urna. Suspendisse
-            volutpat justo id lectus scelerisque tincidunt. Duis commodo ante
-            sed tellus finibus, in convallis nisl scelerisque.
-          </p>
+          <p class="text-gray-700 leading-7">{blog?.content}</p>
         </div>
       </div>
     </div>

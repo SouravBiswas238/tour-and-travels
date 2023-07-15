@@ -15,6 +15,13 @@ const AllBlogsTable = ({ data, onDelete, handleApprove, handleEdit, userDashboar
         {
             name: 'Content',
             selector: 'content',
+            cell: (row) => (
+                <div>
+                    {
+                        <p >{row.content?.split(' ')?.slice(0, 15)?.join(' ')}...</p>
+                    }
+                </div>
+            ),
             sortable: true,
         },
         {

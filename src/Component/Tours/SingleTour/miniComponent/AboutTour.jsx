@@ -61,7 +61,7 @@ const AboutTour = ({ tour }) => {
         </div>
       </div>
       {/* fqa section */}
-      <div className="w-3/4 flex flex-col justify-center pb-5 ">
+      {/* <div className="w-3/4 flex flex-col justify-center pb-5 ">
         <h2 className="text-2xl font-semibold sm:text-4xl py-3">Tour Plan</h2>
         <div className="space-y-4">
           <details className="w-full border rounded-lg">
@@ -92,7 +92,7 @@ const AboutTour = ({ tour }) => {
             </p>
           </details>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
