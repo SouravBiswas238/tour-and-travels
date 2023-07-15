@@ -11,9 +11,9 @@ const HomeIndex = () => {
     <div className="container mx-auto">
       <Navigation></Navigation>
       <Banner />
-      <ExoticPlace />
+      {/* <ExoticPlace /> */}
       <PopularTour />
-      <CustomerReview />
+      {/* <CustomerReview /> */}
     </div>
   );
 };
