@@ -3,7 +3,6 @@ import { useParams } from "react-router";
 import { UserContext } from "../../../UserContext/userContext";
 import AboutTour from "./miniComponent/AboutTour";
 import SingleTourBanner from "./miniComponent/SingleTourBanner";
-import Slider from "./miniComponent/Slider";
 
 const SingleTour = () => {
   const { tours } = useContext(UserContext);
@@ -14,8 +13,6 @@ const SingleTour = () => {
     const data = tours.find((item) => item._id === id);
     setSingleTour(data);
   }, [tours]);
-
-  console.log("t==>", id, tours, singleTour);
 
   return (
     <div className=" mt-10">

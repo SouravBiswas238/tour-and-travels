@@ -1,7 +1,7 @@
 import axios from "axios";
 
-// const baseURL = "http://localhost:5000/api";
-const baseURL = "https://tour-site-server-souravbiswas238.vercel.app/api";
+const baseURL = "http://localhost:5000/api";
+// const baseURL = "https://tour-site-server-souravbiswas238.vercel.app/api";
 
 const makeUrl = (endPoint) => {
   return `${baseURL}${endPoint}`;

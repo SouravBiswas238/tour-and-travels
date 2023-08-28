@@ -11,8 +11,7 @@ export const UserProvider = ({ children }) => {
   const [tours, setTours] = useState([]);
   const [customerTours, setCustomerTours] = useState([]);
   const [blogs, setBlogs] = useState([]);
-  const [allBooking, setAllBooking] = useState([])
-
+  const [allBooking, setAllBooking] = useState([]);
 
   const email = userData?.email;
 
@@ -69,7 +68,7 @@ export const UserProvider = ({ children }) => {
     }
   }, []);
 
-  //this state stored user data  //==> Don't move this one !
+  //this state stored user data   Don't move this one !
   const contextData = {
     users,
     userData,
